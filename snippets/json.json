@@ -1,0 +1,15 @@
+{
+	"Snippets template": {
+		"prefix": "snip",
+		"body": [
+			"\"$1\": {",
+			"\t\"prefix\": \"$2\",",
+			"\t\"body\": [",
+			"\t$0",
+			"\t],",
+			"\"description\": \"$3\"",
+			"},"
+		],
+		"description": "Fast snip template"
+	}
+}

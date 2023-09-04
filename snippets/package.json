@@ -1,0 +1,43 @@
+{
+	"name": "User Snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"all"
+				],
+				"path": "./global.json"
+			},
+			{
+				"language": [
+					"lua"
+				],
+				"path": "./lua.json"
+			},
+			{
+				"language": [
+					"go"
+				],
+				"path": "./go.json"
+			},
+			{
+				"language": [
+					"mod"
+				],
+				"path": "./go.mod.json"
+			},
+			{
+				"language": [
+					"json"
+				],
+				"path": "./json.json"
+			},
+			{
+				"language": [
+					"cpp"
+				],
+				"path": "./cpp.json"
+			}
+		]
+	}
+}

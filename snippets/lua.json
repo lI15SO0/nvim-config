@@ -1,0 +1,14 @@
+{
+	"Neovim Module init": {
+		"prefix": "nmi",
+		"body": [
+			"local api = require(\"api\")\n",
+			"local path=\"$1\"",
+			"local plugins = {",
+			"$0",
+			"}",
+			"return api.plugin.construct(path, plugins)"
+		],
+		"description": "Plugins that not require anything's template"
+	}
+}

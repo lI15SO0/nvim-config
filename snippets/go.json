@@ -1,0 +1,59 @@
+{
+	"Gin Controller" : {
+		"prefix": "ghdl",
+		"body": [
+			"func $1(c *gin.Context) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Create a gin Gandler"
+	},
+
+	"Access checker" : {
+		"prefix": "acc",
+		"body": [
+			"// 获取用户名",
+			"uname := c.GetString(\"username\")",
+			"if len(uname) == 0 {",
+			"\tc.JSON(http.StatusUnauthorized,",
+			"\t\tgin.H{",
+			"\t\t\t\"code\": http.StatusUnauthorized,",
+			"\t\t\t\"msg\":  \"权限不足\",",
+			"\t\t})",
+			"\treturn",
+			"}"
+		],
+		"description": "Account checker"
+	},
+
+	"Func" : {
+		"prefix": "fn",
+		"body": [
+			"func $1($2) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Func short cut"
+	},
+
+	"err" : {
+		"prefix": "ehdl",
+		"body": [
+			"if err != nil {",
+			"$0",
+			"}"
+		],
+		"description": "Method to handle error"
+	},
+
+	"gin json": {
+		"prefix": "gson",
+		"body": [
+			"c.JSON($1, gin.H{",
+			"\"code\": $1,",
+			"\"msg\": \"$0\",",
+			"})"
+		],
+		"description": "Gin handler json fallback"
+	}
+}

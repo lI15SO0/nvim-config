@@ -1,0 +1,12 @@
+{
+	"Program once": {
+		"prefix": "pgonce",
+		"body": [
+			"#ifndef $1",
+			"#define $1",
+			"$0",
+			"#endif"
+		],
+	"description": "Fast macro for program once."
+	}
+}
