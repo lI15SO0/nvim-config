@@ -1,9 +1,5 @@
 return {
 	{
-		"ethanholz/nvim-lastplace",
-		config = true
-	},
-	{
 		"ellisonleao/glow.nvim",
 		lazy = true,
 		ft = {"md", "markdown"},
@@ -14,12 +10,6 @@ return {
 		event = {"BufRead", "BufAdd"},
 		config = true
 	},
-	--[[
-	{
-		"famiu/bufdelete.nvim",
-		event = "VeryLazy",
-	},
-	]]
 	--[[
 	{
 		"lewis6991/spellsitter.nvim",

@@ -4,7 +4,6 @@ local path="plugins.editor"
 local plugins = {
 	"editor",
 	"telescope",
-	"auto-save",
 	"flash",
 	"switch",
 	"window-picker",

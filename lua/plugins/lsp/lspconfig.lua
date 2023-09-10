@@ -5,7 +5,6 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"folke/neoconf.nvim",
-			"folke/neodev.nvim",
 			"glepnir/lspsaga.nvim",
 			{
 				"ray-x/lsp_signature.nvim",

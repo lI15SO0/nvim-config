@@ -1,4 +1,9 @@
-require("core.setting")
-require("core.mapping")
-require("core.options")
-require("core.plugins")
+local loader = require("api.loader")
+loader.safe_requires({
+	"core.setting",
+	"core.mapping",
+	"core.options",
+	"core.plugins",
+	"commands",
+	"autocmd",
+})

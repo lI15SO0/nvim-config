@@ -46,7 +46,6 @@ settings.o = {
 	list = true,
 	-- 自动缩进
 	autoindent = true,
-	filetype = "plugin",
 	-- 是否开启高亮搜索
 	hlsearch = true,
 	-- 是否在插入括号时短暂跳转到另一半括号上
@@ -65,6 +64,8 @@ settings.o = {
 	wrap = false,
 	exrc = true,
 	showmode = false,
+
+	signcolumn = "yes",
 }
 
 settings.bo = {

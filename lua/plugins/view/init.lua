@@ -12,6 +12,7 @@ local plugins = {
 	"neotree",
 	"undotree",
 	"fterm",
+	"gitsigns",
 }
 
 return api.plugin.construct(path, plugins)
