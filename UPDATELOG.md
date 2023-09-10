@@ -48,6 +48,9 @@
 
 [CHANGE] lua/plugins/editor/init.lua:
 - DELETE 7: Delete auto-save from plugins load table.
+- ADD 12: Add new plugins "insx".
+
+[ADD] lua/plugins/editor/insx.lua: new plugins insx.
 
 [CHANGE] lua/plugins/lsp/init.lua:
 - ADD 7: Make neodev use a stand alone file.
