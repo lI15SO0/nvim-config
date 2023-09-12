@@ -1,5 +1,18 @@
 # UPDATE LOG
 
+## 2023-09-12
+
+---
+
+[CHANGE] lua/autocmd/autosave.lua:
+- CHANGE 2: change "wall" to "w". 
+
+[CHANGE] lua/autocmd/init.lua:
+- ADD 13: add "nested" to autosave.
+- ADD [13, 18, 23]: add autocmd descriptions.
+
+---
+
 ## 2023-09-10
 
 ---
