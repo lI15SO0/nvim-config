@@ -9,7 +9,7 @@ local plugins = {
 	"window-picker",
 	"nvim-spectre",
 	"mini",
-	"insx"
+	"text-transform",
 }
 
 return api.plugin.construct(path, plugins)

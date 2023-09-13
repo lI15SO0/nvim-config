@@ -1,5 +1,21 @@
 # UPDATE LOG
 
+## 2023-09-13
+
+---
+
+[CHANGE] lua/plugins/completion/nvim-cmp.lua:
+- DELETE 21, 44: remove :crates" plugin
+
+[CHANGE] lua/plugins/editor/init.lua:
+- DELETE 12: disable "insx" plugin (Cause: mini.splitjoin)
+
+[ADD] lua/plugins/editor/text-transform.lua
+[CHANGE] lua/plugins/editor/init.lua:
+- ADD 12: Add new plugins "text-transform"
+
+---
+
 ## 2023-09-12
 
 ---

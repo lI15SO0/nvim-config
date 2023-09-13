@@ -16,7 +16,6 @@ return {
 		})
 		require("todo-comments").setup({
 			keywords = {
-				-- alt ： 别名
 				FIX = {
 					icon = " ",
 					color = options.color.Error,

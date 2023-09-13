@@ -18,7 +18,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-cmdline",
-		"saecki/crates.nvim",
 		"f3fora/cmp-spell",
 		snippackages,
 
@@ -41,12 +40,11 @@ return {
 				{ name = "buffer" },
 				-- { name = "path" },
 				{ name = 'async_path' },
-				{ name = "crates" },
 				{
 					name = 'spell',
 					option = {
 						keep_all_entries = false,
-						enable_in_context = function() return false end,
+						enable_in_context = function() return true end,
 					},
 				},
 			},
