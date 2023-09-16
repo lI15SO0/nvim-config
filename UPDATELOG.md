@@ -1,5 +1,14 @@
 # UPDATE LOG
 
+## 2023-09-17
+
+---
+
+[CHANGE] ./lua/core/mapping.lua:
+- CHANGE 37, 163, 170, 177, 184: Change ':' to '<cmd>'
+
+---
+
 ## 2023-09-13
 
 ---
