@@ -18,6 +18,7 @@ options.ui.header = {
 
 options.transparent = false
 options.float_border = false
+options.blend = 30
 options.show_winbar = true
 -- double、rounded、single、shadow、none
 options.border = "shadow"

@@ -1,5 +1,31 @@
 # UPDATE LOG
 
+## 2023-09-18
+
+---
+
+[CHANGE] ./lua/commands/Bufdel.lua:
+- ADD 1-6: add annotation
+
+[CHANGE] ./lua/commands/MakeDirectory.lua:
+- ADD 1-6: add annotation
+
+[CHANGE] ./lua/core/options.lua:
+- ADD 21: Add "options.blend" to control float window's transparency.
+
+[CHANGE] ./lua/plugins/completion/nvim-cmp.lua:
+- ADD 151-153: Add custom command "EditSnip" when using vsnip or luasnip engine.
+
+[CHANGE] ./lua/plugins/completion/snip.lua:
+- CHANGE 49: Format code.
+- CHANGE 60-62: config snippy engine's snippet dir.
+- ADD 150-167: Add code to registe custom command "EditSnip".
+
+[CHANGE] ./lua/plugins/view/fterm.lua:
+- CHANGE 17: Change blend to options.blend for a easy way to control options.
+
+---
+
 ## 2023-09-17
 
 ---

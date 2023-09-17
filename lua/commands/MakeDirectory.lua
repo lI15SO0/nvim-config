@@ -1,3 +1,9 @@
+
+--[[
+Command: MakeDirectory
+Description: Build previous dir for the file that editing.
+]]
+
 return function()
 	local path = vim.fn.expand("%")
 	local dir = vim.fn.fnamemodify(path, ":p:h")

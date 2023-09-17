@@ -46,7 +46,7 @@ function M.GetSnipPackages()
 			"hrsh7th/vim-vsnip",
 			dependencies = {
 				"rafamadriz/friendly-snippets",
-					event = "VeryLazy"
+				event = "VeryLazy"
 			},
 		},
 
@@ -57,7 +57,9 @@ function M.snipInit()
 	if options.snip.engine == "vsnip" then
 		vim.g.vsnip_snippet_dir = options.snip.snippath
 	elseif options.snip.engine == "snippy" then
-		M.snippy = require "snippy"
+		M.snippy = require "snippy".setup {
+			snippet_dirs = { options.snippets_directory }
+		}
 	elseif options.snip.engine == "luasnip" then
 		require("luasnip.loaders.from_snipmate").lazy_load({
 			paths = {
@@ -142,6 +144,24 @@ function M.Prev()
 		M.snippy.previous()
 	elseif options.snip.engine == "luasnip" then
 		M.luasnip.jump(-1)
+	end
+end
+
+function M.reg_snip_edit_cmd()
+	if options.snip.engine == "vsnip" then
+		vim.api.nvim_create_user_command(
+			"EditSnip",
+			function()
+				vim.cmd("VsnipOpenEdit")
+			end,
+			{ desc = "Edit Snip file" }
+		)
+	elseif options.snip.engine == "luasnip" then
+		vim.api.nvim_create_user_command(
+			"EditSnip",
+			require("luasnip.loaders").edit_snippet_files,
+			{ desc = "Edit Snip file" }
+		)
 	end
 end
 

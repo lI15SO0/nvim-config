@@ -1,3 +1,9 @@
+
+--[[
+Command: BufferDelete
+Description: Delete Buffer that do not breaek edit views shape.
+]]
+
 return function ()
 	local file_exists = vim.fn.filereadable(vim.fn.expand("%p"))
 	local modified = vim.api.nvim_buf_get_option(0, "modified")

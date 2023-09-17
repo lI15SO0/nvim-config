@@ -14,7 +14,7 @@ return {
 			border = options.border,
 			auto_close = true,
 			hl = 'Normal',
-			blend = 30,
+			blend = options.blend,
 			dimensions = {
 				height = 0.8, -- Height of the terminal window
 				width = 0.8, -- Width of the terminal window
