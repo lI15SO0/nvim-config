@@ -53,7 +53,7 @@ return {
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
-		event = "VeryLazy",
+		event = {"BufRead", "BufAdd"},
 		config = function ()
 			require("colorizer").setup()
 		end,

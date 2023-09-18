@@ -5,7 +5,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		"nvim-telescope/telescope-dap.nvim",
 	},
-	event = "VeryLazy",
+	event = { "BufReadPost", "BufNewFile" },
 	config = function()
 		vim.keymap.set('n', '<F5>', function() require('telescope').extensions.dap.configurations() end)
 		vim.keymap.set('n', '<F7>', function() require('dap').terminate() end)

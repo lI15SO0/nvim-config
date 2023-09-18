@@ -1,7 +1,7 @@
 return {
 	{
 		"echasnovski/mini.nvim",
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require('mini.splitjoin').setup()
 			require('mini.comment').setup()

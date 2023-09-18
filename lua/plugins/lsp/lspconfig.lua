@@ -8,13 +8,13 @@ return {
 			"glepnir/lspsaga.nvim",
 			{
 				"ray-x/lsp_signature.nvim",
-				event = "VeryLazy",
+				-- event = "VeryLazy",
 				opts = {},
 				config = function(_, opts) require 'lsp_signature'.setup(opts) end
 			},
 		},
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 			vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -57,16 +57,16 @@ return {
 			require("neoconf").setup()
 			require("neodev").setup()
 			require("lspsaga").setup()
-			require("mason").setup(
-				{
-					PATH = "append",
-				}
-			)
+			require("mason").setup{
+				PATH = "append",
+			}
+
+			local all_lsp_packages = require("mason-registry").get_all_packages()
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
 						require("lspconfig")[server_name].setup {
-							settings = require("mason-registry").get_all_packages()[server_name],
+							settings = all_lsp_packages[server_name],
 							on_attach = on_attach,
 							capabilities = capabilities,
 						}

@@ -7,7 +7,7 @@ return {
 	},
 	{
 		"ur4ltz/surround.nvim",
-		event = {"BufRead", "BufAdd"},
+		event = {"BufReadPost", "BufAdd"},
 		config = true
 	},
 	--[[

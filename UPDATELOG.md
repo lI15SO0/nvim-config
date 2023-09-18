@@ -1,5 +1,35 @@
 # UPDATE LOG
 
+## 2023-09-19
+
+---
+
+[CHANGE] ./lua/autocmd/autosave.lua:
+- DEL 3: Make saved message not show up.
+
+[CHANGE] ./lua/plugins/lsp/neodev.lua: 
+- ADD 17: Make luapad more stable.
+
+[CHANGE] ./lua/plugins/view/nvim-notify.lua:
+- CHANGE 9: make notify shorter.
+
+[CHANGE] ./lua/plugins/view/undotree.lua:
+- FORMAT 19-21, 27
+
+[PERF] Make nvim boot up faster.
+    [CHANGE] ./lua/plugins/dap/dap.lua: CHANGE 8
+    [CHANGE] ./lua/plugins/editor/switch.lua: CHANGE 10
+    [CHANGE] ./lua/plugins/editor/flash.lua: DEL 3
+    [CHANGE] ./lua/plugins/editor/mini.lua: CHANGE 4
+    [CHANGE] ./lua/plugins/editor/window-picker.lua: DEL 1~2, 6 ; MOVE 19-31 to 4-15
+    [CHANGE] ./lua/plugins/lsp/lspconfig.lua: CHANGE 11, 17, 69 ; ADD 64
+    [CHANGE] ./lua/plugins/lsp/lspui.lua: CHANGE 6
+    [CHANGE] ./lua/plugins/lsp/neodev.lua: CHANGE 5
+    [CHANGE] ./lua/plugins/view/aerial.lua: MOVE 14-18 to 5-9
+    [CHANGE] ./lua/plugins/view/ui.lua: CHANGE 56
+
+---
+
 ## 2023-09-18
 
 ---

@@ -3,7 +3,7 @@ return {
 		"j-hui/fidget.nvim",
 		tag = "legacy",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("fidget").setup{
 				window = {
