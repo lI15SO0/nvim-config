@@ -10,6 +10,10 @@
 [CHANGE] ./lua/plugins/lsp/neodev.lua: 
 - ADD 17: Make luapad more stable.
 
+[CHANGE] ./lua/plugins/view/alpha.lua:
+- DEL 22~25: remove fortune. 
+
+
 [CHANGE] ./lua/plugins/view/nvim-notify.lua:
 - CHANGE 9: make notify shorter.
 
