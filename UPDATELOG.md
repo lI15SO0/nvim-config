@@ -1,5 +1,25 @@
 # UPDATE LOG
 
+## 2023-09-20
+
+---
+
+[CHANGE] ./lua/core/mapping.lua:
+- ADD 97-110: Add 2 Key bind to move line up/down.
+
+[CHANGE] ./lua/editor/telescope.lua:
+- CHANGE 10: Change build tool from make to cmake.
+
+[CHANGE] ./lua/api/init.lua:
+- ADD 13: Add new function.
+
+[ADD] ./lua/api/tbl.lua: some function for tbl.
+
+[CHANGE] ./lua/api/path.lua:
+- DEL 11~23: delete no use function.
+
+---
+
 ## 2023-09-19
 
 ---

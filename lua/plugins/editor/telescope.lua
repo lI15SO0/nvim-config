@@ -7,7 +7,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make"
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
 			}
 		},
 		config = function()
@@ -24,7 +24,7 @@ return {
 			require("telescope").load_extension("fzf")
 
 			local builtin = require("telescope.builtin")
-			
+
 			api.map.bulk_regist( {
 				{
 					mode = {'n'},

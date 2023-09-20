@@ -1,5 +1,5 @@
 return {
---[[
+	--[[
 	{
 		"folke/which-key.nvim",
 		config = true
@@ -7,16 +7,15 @@ return {
 ]]
 	{
 		"kevinhwang91/nvim-hlslens",
-		keys = {
-			{ mode = {"n", "v"}, 'n', 'n' },
-			{ mode = {"n", "v"}, 'N', 'N' },
-			{ mode = {"n", "v"}, '/', '/' },
-		},
-		config = true
+		event = "VeryLazy",
+		config = {
+			calm_down = true,
+			nearest_only = true,
+		}
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = {"BufRead", "BufAdd"},
+		event = { "BufRead", "BufAdd" },
 		config = true
 	},
 	{
@@ -25,7 +24,7 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = {"BufRead", "BufAdd"},
+		event = { "BufRead", "BufAdd" },
 		config = function()
 			require("illuminate").configure({
 				providers = {
@@ -53,8 +52,8 @@ return {
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
-		event = {"BufRead", "BufAdd"},
-		config = function ()
+		event = { "BufRead", "BufAdd" },
+		config = function()
 			require("colorizer").setup()
 		end,
 	}

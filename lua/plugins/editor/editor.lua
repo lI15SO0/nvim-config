@@ -10,16 +10,4 @@ return {
 		event = {"BufReadPost", "BufAdd"},
 		config = true
 	},
-	--[[
-	{
-		"lewis6991/spellsitter.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("spellsitter").setup {
-				enable = true,
-				debug = false
-			}
-		end
-	},
-	]]
 }

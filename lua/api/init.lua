@@ -10,4 +10,6 @@ api.command = require("api.command")
 
 api.loader = require("api.loader")
 
+api.tbl = require("api.tbl")
+
 return api

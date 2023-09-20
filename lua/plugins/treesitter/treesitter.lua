@@ -18,7 +18,6 @@ return {
 			ignore_install = nil,
 			highlight = {
 				enable = true,
-				-- additional_vim_regex_highlighting = false, -- change: spellsitter
 			},
 			indent = {
 				enable = true,
