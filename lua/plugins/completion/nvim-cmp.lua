@@ -13,22 +13,19 @@ local snippackages = snip.GetSnipPackages()
 return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
-		-- "hrsh7th/cmp-path",
 		"FelipeLema/cmp-async-path",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-cmdline",
-		"f3fora/cmp-spell",
+		-- "f3fora/cmp-spell",
 		snippackages,
 
 		"lukas-reineke/cmp-under-comparator",
-		"onsails/lspkind.nvim",
 	},
 	event = "VeryLazy",
 	config = function()
 		snip.snipInit()
 		local cmp = require("cmp")
-		local lspkind = require('lspkind')
 
 		cmp.setup {
 			snippet = {
@@ -38,15 +35,14 @@ return {
 				{ name = snip.getSnipSource() },
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
-				-- { name = "path" },
 				{ name = 'async_path' },
-				{
-					name = 'spell',
-					option = {
-						keep_all_entries = false,
-						enable_in_context = function() return true end,
-					},
-				},
+				-- {
+				-- 	name = 'spell',
+				-- 	option = {
+				-- 		keep_all_entries = false,
+				-- 		enable_in_context = function() return true end,
+				-- 	},
+				-- },
 			},
 			mapping = cmp.mapping.preset.insert {
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -54,15 +50,6 @@ return {
 				-- ['<C-Space>'] = cmp.mapping.complete(),
 				['<C-e>'] = cmp.mapping.abort(),
 				['<C-p>'] = cmp.mapping.abort(),
-				--[[
-				['<CR>'] = cmp.mapping(function (fallback)
-					if cmp.visible() then
-						cmp.confirm({ select = true })
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				]]
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.confirm({ select = true })
@@ -117,14 +104,10 @@ return {
 				},
 			},
 			formatting = {
-				format = lspkind.cmp_format({
-					with_text = true,
-					maxwidth = 50,
-					before = function(entry, vim_item)
+				format = function (entry, vim_item)
 						vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
 						return vim_item
-					end
-				}),
+				end
 			},
 		}
 

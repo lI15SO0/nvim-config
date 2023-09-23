@@ -8,7 +8,7 @@ return {
 	config = function()
 		api.map.register({
 			mode = { 'n' },
-			key = '<leader>3',
+			key = '<leader>2',
 			fn = "<cmd>UndotreeToggle<CR>",
 			options = { silent = true },
 			description = "Toggle undotree",

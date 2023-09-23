@@ -4,6 +4,12 @@ local api = require("api")
 
 local options = {}
 
+options.lsp = {}
+-- lsp.manual possible value: "full", "true", "false"
+options.lsp.manual = "false"
+options.lsp.config = { lua_ls = { Lua = { workspace = { checkThirdParty = false }, telemetry = { enable = false }}}}
+options.lsp.configed = {}
+
 options.ui = {}
 options.ui.header = {
 			"███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",

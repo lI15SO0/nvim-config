@@ -1,3 +1,5 @@
+local options = require("core.options")
+
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -8,7 +10,6 @@ return {
 			"glepnir/lspsaga.nvim",
 			{
 				"ray-x/lsp_signature.nvim",
-				-- event = "VeryLazy",
 				opts = {},
 				config = function(_, opts) require 'lsp_signature'.setup(opts) end
 			},
@@ -34,21 +35,23 @@ return {
 
 				local tel_builtin = require("telescope.builtin")
 				maps {
-					{ 'n',        'K',          "<cmd>Lspsaga hover_doc<CR>",			{ desc = "Show hover docs", silent = true } },
-					{ 'n',        'gD',         vim.lsp.buf.declaration,				{ desc = "Show declarations", silent = true } },
-					{ 'n',        'gd',         tel_builtin.lsp_definitions,			{ desc = "Show definition", silent = true } },
-					{ 'n',        'gi',         vim.lsp.buf.implementation,				{ desc = "Show implementation", silent = true } },
-					{ 'n',        'gr',         tel_builtin.lsp_references,				{ desc = "Show references", silent = true } },
-					{ 'n',        '<A-k>',      vim.lsp.buf.signature_help,				{ desc = "Show Signature help", silent = true } },
-					{ 'n',        '<leader>wa', vim.lsp.buf.add_workspace_folder,		{ desc = "Add workspace folder", silent = true } },
-					{ 'n',        '<leader>wr', vim.lsp.buf.remove_workspace_folder,	{ desc = "Remove workspace folder", silent = true } },
-					{ 'n',        '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { desc = "Show workspace list", silent = true } },
-					{ 'n',        '<leader>D',  vim.lsp.buf.type_definition,			{ desc = "Show type definition", silent = true } },
-					{ 'n',        '<leader>cn', "<cmd>Lspsaga rename<CR>",				{ desc = "Rename", silent = true } },
-					{ 'n',        '<leader>fc', function() vim.lsp.buf.format { async = true } end, { desc = "Formating code", silent = true } },
-					{ 'n',        '<leader>da', tel_builtin.diagnostics,				{ desc = "Show diagnostics", silent = true } },
-					{ { 'n', 'v' }, '<leader>ca', "<cmd>Lspsaga code_action<CR>",		{ desc = "Show code action", silent = true } },
-					{ { 'n', 'v' }, '<leader>2', "<cmd>Lspsaga outline<CR>",			{ desc = "Show outlines", silent = true } },
+					-- { 'n',        'K',          "<cmd>Lspsaga hover_doc<CR>",			{ desc = "Show hover docs", silent = true } },
+					{ 'n',			'K',          vim.lsp.buf.hover,						{ desc = "Show hover docs", silent = true } },
+					{ 'n',			'gD',         vim.lsp.buf.declaration,				{ desc = "Show declarations", silent = true } },
+					{ 'n',			'gd',         tel_builtin.lsp_definitions,			{ desc = "Show definition", silent = true } },
+					{ 'n',			'gi',         vim.lsp.buf.implementation,				{ desc = "Show implementation", silent = true } },
+					{ 'n',			'gr',         tel_builtin.lsp_references,				{ desc = "Show references", silent = true } },
+					{ 'n',			'<A-k>',      vim.lsp.buf.signature_help,				{ desc = "Show Signature help", silent = true } },
+					{ 'n',			'<leader>wa', vim.lsp.buf.add_workspace_folder,		{ desc = "Add workspace folder", silent = true } },
+					{ 'n',			'<leader>wr', vim.lsp.buf.remove_workspace_folder,	{ desc = "Remove workspace folder", silent = true } },
+					{ 'n',			'<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { desc = "Show workspace list", silent = true } },
+					{ 'n',			'<leader>D',  vim.lsp.buf.type_definition,			{ desc = "Show type definition", silent = true } },
+					{ 'n',			'<leader>cn', "<cmd>Lspsaga rename<CR>",				{ desc = "Rename", silent = true } },
+					-- { 'n',        '<leader>cn', vim.lsp.buf.rename,						{ desc = "Rename", silent = true } },
+					{ 'n',			'<leader>fc', function() vim.lsp.buf.format { async = true } end, { desc = "Formating code", silent = true } },
+					{ 'n',			'<leader>da', tel_builtin.diagnostics,				{ desc = "Show diagnostics", silent = true } },
+					{ { 'n', 'v' },	'<leader>ca', "<cmd>Lspsaga code_action<CR>",		{ desc = "Show code action", silent = true } },
+					-- { { 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,		{ desc = "Show code action", silent = true } },
 				}
 			end
 
@@ -59,20 +62,86 @@ return {
 			require("lspsaga").setup()
 			require("mason").setup{
 				PATH = "append",
+				ui = {
+					border = options.float_border,
+				}
 			}
 
-			local all_lsp_packages = require("mason-registry").get_all_packages()
+			options.lsp.configured = {}
+
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup {
-							settings = all_lsp_packages[server_name],
-							on_attach = on_attach,
-							capabilities = capabilities,
-						}
+						if options.lsp.config[server_name] == nil then
+							options.lsp.configed[server_name] = {
+								on_attach = on_attach,
+								capabilities = capabilities,
+							}
+						else
+							options.lsp.configed[server_name] = vim.tbl_deep_extend(
+								"keep",
+								{
+									on_attach = on_attach,
+									capabilities = capabilities,
+								},
+								options.lsp.config[server_name]
+							)
+						end
 					end
 				}
 			})
+
+			
+			if options.lsp.manual == "full" then
+				vim.notify(
+					"Full manual lspconfig mod. You can set lspconfig at .nvim.lua file.",
+					vim.log.levels.INFO,
+					{title = "LSP Config"}
+				)
+			elseif options.lsp.manual == "true" then
+				vim.api.nvim_create_user_command ( 
+					"EnableLsp",
+					function (opts)
+						if opts.fargs[1] == nil then
+							vim.notify(
+								"Must give a lsp name to enable a lsp.",
+								vim.log.levels.WARN,
+								{title = "LSP Config"}
+							)
+							return
+						end
+						local lsp_name = opts.fargs[1]
+
+						if options.lsp.configed[lsp_name] == nil then
+							vim.notify(
+								'LSP servicet "' .. lsp_name .. '" not exists or not install.',
+								vim.log.levels.WARN,
+								{title = "LSP Config"}
+							)
+							return
+						end
+
+						local lsp_conf = options.lsp.configed[lsp_name]
+						-- BUG: Why need 2 time requrie ????? Why just one time can not load correctlly ?????
+						require("lspconfig")[lsp_name].setup(lsp_conf)
+						require("lspconfig")[lsp_name].setup(lsp_conf)
+						vim.notify(
+							'Enable LSP service "' .. lsp_name .. '" successfully.',
+							vim.log.levels.INFO,
+							{title = "LSP Config"}
+						)
+					end,
+					{
+						desc = "Manully enable a lsp service.",
+						nargs = 1
+					}
+				 )
+			else
+				for lsp_name, lsp_conf in pairs(options.lsp.configed) do
+					require("lspconfig")[lsp_name].setup(lsp_conf)
+				end
+			end
+
 		end
 	}
 }

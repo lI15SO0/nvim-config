@@ -1,5 +1,35 @@
 # UPDATE LOG
 
+## 2023-09-23
+
+---
+
+[CHANGE] ./lua/core/options.lua:
+- ADD 7-12: Add lspconfig control method (now can config lsp on .nvim.lua file.).
+
+[CHANGE] ./lua/api/tbl.lua:
+- ADD 10-12: nil check
+- DEL 16, 17, 19; ADD 20: make function more stable.
+
+[CHANGE] ./lua/plugins/completion/nvim-cmp.lua:
+- DEL 16, 57-65: remove no use line.
+- DEL 25, 31, 120-127: remove lspkind plugins(it only provided icons, but icon not useful in cmp list.).
+- ANNOTATION 20, 39-45: disable spell source
+
+[CHANGE] ./lua/plugins/lsp/lspconfig.lua:
+- DEL 11: remove no use line.
+- ANNOTATION 37:
+- ADD 38: use vim.lsp.buf.hover to replace lspsaga's hover doc(cause vim apis' hover page more simple.).
+- DEL 51: remove lspsaga outline func(cause this func not useful). 
+- ADD 75-89, 93-144: Support auto or half/full manully method to config LSP.
+
+[CHANGE] ./lua/plugins/view/undotree.lua:
+- CHANGE 11: move key bind from "<leader>3" to "<leader>2" (cause outline no longer bind in <leader>2).
+
+[ADD] ./snippets/rust.json
+
+---
+
 ## 2023-09-20
 
 ---

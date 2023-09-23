@@ -1,0 +1,11 @@
+{
+	"Actix Router Function": {
+		"prefix": "actixrouter",
+		"body": [
+			"pub fn $1(cfg: &mut web::ServiceConfig) {",
+			"\tcfg.service(web::scope(\"$0\"))",
+			"}"
+		],
+		"description": "Actix router Function."
+	}
+}
