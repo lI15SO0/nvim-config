@@ -1,5 +1,24 @@
 # UPDATE LOG
 
+## 2023-09-27
+
+---
+
+### 01:20
+
+[CHANGE] ./lua/api/init.lua:
+- ADD 15: add a new api to support add snip dir.
+
+[CHANGE] ./lua/core/options.lua:
+- DEL 35: remove no use var.
+- MOD 66: change type to table to support new api.
+
+[CHANGE] ./lua/plugins/completion/snip.lua:
+- ADD 61, 64, 85: support new api. 
+- MOD 58, 61: support new api.
+
+---
+
 ## 2023-09-23
 
 ---

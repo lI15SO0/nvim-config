@@ -55,32 +55,34 @@ end
 
 function M.snipInit()
 	if options.snip.engine == "vsnip" then
-		vim.g.vsnip_snippet_dir = options.snip.snippath
+		vim.g.vsnip_snippet_dirs = options.snip.snippath
 	elseif options.snip.engine == "snippy" then
 		M.snippy = require "snippy".setup {
-			snippet_dirs = { options.snippets_directory }
+			snippet_dirs = options.snip.snippath
 		}
 	elseif options.snip.engine == "luasnip" then
-		require("luasnip.loaders.from_snipmate").lazy_load({
-			paths = {
-				options.snip.snippath,
-				vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
-			}
-		})
+		for _, path in pairs(options.snip.snippath) do
+			require("luasnip.loaders.from_snipmate").lazy_load({
+				paths = {
+					path,
+					vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
+				}
+			})
 
-		require("luasnip.loaders.from_lua").lazy_load({
-			paths = {
-				options.snip.snippath,
-				vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
-			}
-		})
+			require("luasnip.loaders.from_lua").lazy_load({
+				paths = {
+					path,
+					vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
+				}
+			})
 
-		require("luasnip.loaders.from_vscode").lazy_load({
-			paths = {
-				options.snip.snippath,
-				vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
-			}
-		})
+			require("luasnip.loaders.from_vscode").lazy_load({
+				paths = {
+					path,
+					vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
+				}
+			})
+		end
 		-- require("luasnip.loaders.from_" .. options.snip.luasnip_method).lazy_load()
 		M.luasnip = require("luasnip")
 	else

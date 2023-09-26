@@ -14,14 +14,14 @@
 	"New Module": {
 		"prefix": "mod",
 		"body": [
-		"local M = {}",
-		"",
-		"function M.$1()",
-		"$0",
-		"end",
-		"",
-		"return M"
+			"local M = {}",
+			"",
+			"function M.$1()",
+			"$0",
+			"end",
+			"",
+			"return M"
 		],
-	"description": "New local M module snip."
+		"description": "New local M module snip."
 	}
 }

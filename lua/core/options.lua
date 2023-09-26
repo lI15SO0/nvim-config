@@ -32,7 +32,6 @@ options.border = "shadow"
 options.download_source = "https://github.com/"
 
 options.lint_directory = api.path.join(vim.fn.stdpath("config"), "lint")
-options.snippets_directory = api.path.join(vim.fn.stdpath("config"), "snippets")
 options.undotree_dir = "~/.cache/nvim/undodir"
 vim.g.undotree_dir = options.undotree_dir
 
@@ -64,7 +63,7 @@ options.snip = {}
 --		2. snippy
 --		3. luasnip
 options.snip.engine = "luasnip"
-options.snip.snippath = api.path.join(vim.fn.stdpath("config"), "snippets")
+options.snip.snippath = { api.path.join(vim.fn.stdpath("config"), "snippets") }
 
 --> avaliable value:
 -->		1. lua

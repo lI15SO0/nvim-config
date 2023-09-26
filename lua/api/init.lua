@@ -12,4 +12,6 @@ api.loader = require("api.loader")
 
 api.tbl = require("api.tbl")
 
+api.snip = require("api.snip")
+
 return api
