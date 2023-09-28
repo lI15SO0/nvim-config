@@ -9,6 +9,10 @@
 [CHANGE] ./lua/plugins/editor/mini.lua:
 - ANNOTATION 9: cancle mini.pairs
 
+### 01:29
+[CHANGE] ./lua/plugins/editor/flash.lua:
+- ADD 4-8: Disabled flash clever-f mode.
+
 ---
 
 ## 2023-09-28

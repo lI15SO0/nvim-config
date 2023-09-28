@@ -1,6 +1,12 @@
 return {
 	"folke/flash.nvim",
-	opts = {},
+	opts = {
+		modes = {
+			char = {
+				enabled = false,
+			}
+		}
+	},
 	keys = {
 		{"e", mode = {"n", "x", "o"}, function() require("flash").jump() end, desc = "Flash" },
 		{"E", mode = {"n", "x", "o"}, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
