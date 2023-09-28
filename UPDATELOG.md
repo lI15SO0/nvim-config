@@ -1,5 +1,16 @@
 # UPDATE LOG
 
+## 2023-09-29
+
+---
+
+### 01:01
+
+[CHANGE] ./lua/plugins/editor/mini.lua:
+- ANNOTATION 9: cancle mini.pairs
+
+---
+
 ## 2023-09-28
 
 ---
