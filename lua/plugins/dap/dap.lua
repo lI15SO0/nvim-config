@@ -7,7 +7,10 @@ return {
 	},
 	event = { "BufReadPost", "BufNewFile" },
 	config = function()
-		vim.keymap.set('n', '<F5>', function() require('telescope').extensions.dap.configurations() end)
+		vim.keymap.set('n', '<F5>', function()
+			require('telescope').load_extension('dap')
+			require('telescope').extensions.dap.configurations()
+		end)
 		vim.keymap.set('n', '<F7>', function() require('dap').terminate() end)
 		vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
 		vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)

@@ -1,5 +1,28 @@
 # UPDATE LOG
 
+## 2023-09-28
+
+---
+
+### 22:20
+
+[CHANGE] ./lua/plugins/dap/dap.lua:
+- ADD 11: Add requtire to fix dap map's function.
+- TODO: for some reason this map now working at my machine right now.
+
+[CHANGE] ./lua/plugins/editor/mini.lua:
+- ADD 9: setup mini.pairs
+
+[CHANGE] ./lua/plugins/view/init.lua:
+- ADD 16: move indent-blankline to a file.
+
+[CHANGE] ./lua/plugins/view/ui.lua:
+- DEL 16-20: move indent-blankline to a file.
+
+[ADD] ./lua/plugins/editor/indent-blankline.lua: Move out of ui.lua.
+
+---
+
 ## 2023-09-27
 
 ---

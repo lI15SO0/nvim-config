@@ -13,6 +13,7 @@ local plugins = {
 	"undotree",
 	"fterm",
 	"gitsigns",
+	"indent-blankline",
 }
 
 return api.plugin.construct(path, plugins)

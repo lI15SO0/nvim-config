@@ -14,11 +14,6 @@ return {
 		}
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufRead", "BufAdd" },
-		config = true
-	},
-	{
 		"psliwka/vim-smoothie",
 		event = "VeryLazy",
 	},
