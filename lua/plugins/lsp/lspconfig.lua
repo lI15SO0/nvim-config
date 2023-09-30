@@ -7,7 +7,6 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"folke/neoconf.nvim",
-			"glepnir/lspsaga.nvim",
 			{
 				"ray-x/lsp_signature.nvim",
 				opts = {},
@@ -35,8 +34,7 @@ return {
 
 				local tel_builtin = require("telescope.builtin")
 				maps {
-					-- { 'n',        'K',          "<cmd>Lspsaga hover_doc<CR>",			{ desc = "Show hover docs", silent = true } },
-					{ 'n',			'K',          vim.lsp.buf.hover,						{ desc = "Show hover docs", silent = true } },
+					{ 'n',			'K',          "<cmd>LspUI hover<cr>",						{ desc = "Show hover docs", silent = true } },
 					{ 'n',			'gD',         vim.lsp.buf.declaration,				{ desc = "Show declarations", silent = true } },
 					{ 'n',			'gd',         tel_builtin.lsp_definitions,			{ desc = "Show definition", silent = true } },
 					{ 'n',			'gi',         vim.lsp.buf.implementation,				{ desc = "Show implementation", silent = true } },
@@ -46,12 +44,11 @@ return {
 					{ 'n',			'<leader>wr', vim.lsp.buf.remove_workspace_folder,	{ desc = "Remove workspace folder", silent = true } },
 					{ 'n',			'<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { desc = "Show workspace list", silent = true } },
 					{ 'n',			'<leader>D',  vim.lsp.buf.type_definition,			{ desc = "Show type definition", silent = true } },
-					{ 'n',			'<leader>cn', "<cmd>Lspsaga rename<CR>",				{ desc = "Rename", silent = true } },
-					-- { 'n',        '<leader>cn', vim.lsp.buf.rename,						{ desc = "Rename", silent = true } },
+					{ 'n',			'<leader>cn', "<cmd>LspUI rename<CR>",				{ desc = "Rename", silent = true } },
 					{ 'n',			'<leader>fc', function() vim.lsp.buf.format { async = true } end, { desc = "Formating code", silent = true } },
-					{ 'n',			'<leader>da', tel_builtin.diagnostics,				{ desc = "Show diagnostics", silent = true } },
-					{ { 'n', 'v' },	'<leader>ca', "<cmd>Lspsaga code_action<CR>",		{ desc = "Show code action", silent = true } },
-					-- { { 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,		{ desc = "Show code action", silent = true } },
+					-- { 'n',			'<leader>da', tel_builtin.diagnostics,				{ desc = "Show diagnostics", silent = true } },
+					{ 'n',			'<leader>da', "<cmd>LspUI diagnostic<cr>",				{ desc = "Show diagnostics", silent = true } },
+					{ { 'n', 'v' },	'<leader>ca', "<cmd>LspUI code_action<CR>",		{ desc = "Show code action", silent = true } },
 				}
 			end
 
@@ -59,7 +56,6 @@ return {
 
 			require("neoconf").setup()
 			require("neodev").setup()
-			require("lspsaga").setup()
 			require("mason").setup{
 				PATH = "append",
 				ui = {

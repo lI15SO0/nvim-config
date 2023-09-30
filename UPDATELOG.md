@@ -1,5 +1,26 @@
 # UPDATE LOG
 
+## 2023-09-30
+
+---
+
+### 14:21
+
+[FIX] ./lua/core/options.lua:
+- CHANGE 10-24: Fixed lua_ls settings tbl struct.
+
+### 22:04
+
+[CHANGE] ./lua/plugins/lsp/lspconfig.lua:
+- DELETE 10, 62:
+- CHANGE 37, 47, 49-51: Use LspUI to replace Lspsaga.
+
+[CHANGE] ./lua/plugins/lsp/lspui.lua:
+- ADD 20-34: Add LspUI plugin to replace Lspsaga.
+
+
+---
+
 ## 2023-09-29
 
 ---
