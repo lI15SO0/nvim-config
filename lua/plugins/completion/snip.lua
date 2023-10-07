@@ -54,42 +54,50 @@ function M.GetSnipPackages()
 end
 
 function M.snipInit()
-	if options.snip.engine == "vsnip" then
-		vim.g.vsnip_snippet_dirs = options.snip.snippath
-	elseif options.snip.engine == "snippy" then
-		M.snippy = require "snippy".setup {
-			snippet_dirs = options.snip.snippath
-		}
-	elseif options.snip.engine == "luasnip" then
-		for _, path in pairs(options.snip.snippath) do
-			require("luasnip.loaders.from_snipmate").lazy_load({
-				paths = {
-					path,
-					vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
-				}
-			})
+	local _init = function()
+		if options.snip.engine == "vsnip" then
+			vim.g.vsnip_snippet_dirs = options.snip.snippath
+		elseif options.snip.engine == "snippy" then
+			M.snippy = require "snippy".setup {
+				snippet_dirs = options.snip.snippath
+			}
+		else -- LuaSnip branch
+			for _, path in pairs(options.snip.snippath) do
+				require("luasnip.loaders.from_snipmate").lazy_load({
+					paths = {
+						path,
+						vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
+					}
+				})
 
-			require("luasnip.loaders.from_lua").lazy_load({
-				paths = {
-					path,
-					vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
-				}
-			})
+				require("luasnip.loaders.from_lua").lazy_load({
+					paths = {
+						path,
+						vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
+					}
+				})
 
-			require("luasnip.loaders.from_vscode").lazy_load({
-				paths = {
-					path,
-					vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
-				}
-			})
+				require("luasnip.loaders.from_vscode").lazy_load({
+					paths = {
+						path,
+						vim.fn.stdpath("data") .. '/lazy/friendly-snippets',
+					}
+				})
+			end
+			-- require("luasnip.loaders.from_" .. options.snip.luasnip_method).lazy_load()
+			M.luasnip = require("luasnip")
 		end
-		-- require("luasnip.loaders.from_" .. options.snip.luasnip_method).lazy_load()
-		M.luasnip = require("luasnip")
-	else
-		options.snip.engine = "vsnip"
-		vim.g.vsnip_snippet_dir = options.snip.snippath
-		vim.notify("Unable resove snipEngine's name, Pls check core/options.lua", vim.log.levels.WARN)
 	end
+
+	if options.snip.engine == nil then
+		options.snip.engine = "luasnip"
+		vim.notify("Unable resove snipEngine's name, Pls check core/options.lua", vim.log.levels.WARN, {
+			title =
+			"cmp.snip"
+		})
+	end
+
+	_init()
 end
 
 function M.getSnipEngine(args)

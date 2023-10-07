@@ -1,3 +1,35 @@
+local char_tbl = {
+	left_aligned_solid = {
+		"▏",
+		"▎",
+		"▍",
+		"▌",
+		"▋",
+		"▊",
+		"▉",
+		"█",
+	},
+	center_aligned_solid = {
+		"│",
+		"┃",
+	},
+	right_aligned_solid = {
+		"▕",
+		"▐",
+	},
+	center_aligned_dashed = {
+		"╎",
+		"╏",
+		"┆",
+		"┇",
+		"┊",
+		"┋",
+	},
+	center_aligned_double = {
+		"║",
+	},
+}
+
 return
 {
 	"lukas-reineke/indent-blankline.nvim",
@@ -28,10 +60,13 @@ return
 
 		vim.g.rainbow_delimiters = { highlight = highlight }
 		require("ibl").setup {
+			indent = {
+				char = char_tbl.left_aligned_solid[1],
+				tab_char = char_tbl.left_aligned_solid[1],
+			},
 			scope = {
 				highlight = highlight,
-				char = '|',
-				tab_char = "|",
+				char = char_tbl.left_aligned_solid[1],
 			}
 		}
 

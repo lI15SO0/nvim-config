@@ -1,6 +1,21 @@
 # UPDATE LOG
 
-## 2023-09-30
+## 2023-10-08
+
+---
+
+### 00:41
+
+[CHANGE] ./lua/plugins/completion/snip.lua:
+- CHANGE 57-100: Change snipinit func. Make default snip engine to luasnip.
+
+[FIX] [CHANGE] ./lua/plugins/view/indent-blankline.lua:
+- ADD 1-32: ADD char_tbl.
+- ADD 63-66: modify indent char.
+- CHANGE 69: use Char_tbl.
+- DEL 69~70: delete a not exist config to fix warning.
+
+---
 
 ---
 
