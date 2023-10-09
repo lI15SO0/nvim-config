@@ -1,5 +1,18 @@
 # UPDATE LOG
 
+## 2023-10-10
+
+---
+
+### 01:30
+
+[CHANGE] ./snippets/lua.json:
+- ADD 2-21: Add exrc init snippets.
+
+[DEL] ./neoconf.json: Delete not useful file.
+
+---
+
 ## 2023-10-08
 
 ---
