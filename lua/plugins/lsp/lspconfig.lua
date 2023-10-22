@@ -118,8 +118,6 @@ return {
 						end
 
 						local lsp_conf = options.lsp.configed[lsp_name]
-						-- BUG: Why need 2 time requrie ????? Why just one time can not load correctlly ?????
-						require("lspconfig")[lsp_name].setup(lsp_conf)
 						require("lspconfig")[lsp_name].setup(lsp_conf)
 						vim.notify(
 							'Enable LSP service "' .. lsp_name .. '" successfully.',

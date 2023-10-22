@@ -1,5 +1,18 @@
 # UPDATE LOG
 
+## 2023-10-22
+---
+
+### 13:56
+
+[CHANGE] ./lua/plugins/dap/dap.lua:
+- CHANGE 12: .
+
+[CHANGE] ./lua/plugins/lsp/lspconfig.lua:
+- DEL 121~122: Just need one time require.
+
+---
+
 ## 2023-10-10
 
 ---
@@ -72,7 +85,6 @@
 
 [CHANGE] ./lua/plugins/dap/dap.lua:
 - ADD 11: Add requtire to fix dap map's function.
-- TODO: for some reason this map now working at my machine right now.
 
 [CHANGE] ./lua/plugins/editor/mini.lua:
 - ADD 9: setup mini.pairs
