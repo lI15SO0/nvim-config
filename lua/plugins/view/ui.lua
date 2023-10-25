@@ -8,7 +8,7 @@ return {
 	{
 		"kevinhwang91/nvim-hlslens",
 		event = "VeryLazy",
-		config = {
+		opts = {
 			calm_down = true,
 			nearest_only = true,
 		}

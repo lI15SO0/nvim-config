@@ -6,6 +6,7 @@ local switch_words = {
     {"yes", "no"},
     {"disable", "enable"},
     {"+", "-"},
+	{"*", "/"},
     {">", "<"},
     {"=", "!="},
     {"left", "right"},
@@ -13,7 +14,13 @@ local switch_words = {
     {"start", "stop"},
     {"&&", "||"},
     {"&", "|"},
+    {"more", "less"},
+	{"top", "bottom"},
+	{"max", "min"},
+	{"big", "small"},
+	{"long", "short"},
 }
+
 local push_words = {}
 
 return {

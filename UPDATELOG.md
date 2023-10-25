@@ -1,5 +1,19 @@
 # UPDATE LOG
 
+## 2023-10-25
+
+---
+
+### 11:51
+
+[CHANGE] ./lua/plugins/editor/switch.lua:
+- ADD 9, 17-21: Add some switch words.
+
+[CHANGE] ./lua/plugins/view/ui.lua:
+- CHANGE 11: Change config to opts due to checkhealth.
+
+---
+
 ## 2023-10-22
 ---
 
