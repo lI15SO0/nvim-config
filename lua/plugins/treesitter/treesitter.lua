@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- https://github.com/nvim-treesitter/nvim-treesitter
 local options = require("core.options")
 
@@ -5,7 +6,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
-			"p00f/nvim-ts-rainbow",
+			"HiPhish/rainbow-delimiters.nvim",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
@@ -16,10 +17,8 @@ return {
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "markdown", "markdown_inline", 'lua' },
-				ignore_install = nil,
-				highlight = {
-					enable = true,
-				},
+				ignore_install = {},
+				highlight = {enable = true,},
 				indent = {
 					enable = true,
 					disable = { "yaml", "python", "html", "vue" },
@@ -34,17 +33,8 @@ return {
 						scope_incremental = "<tab>",
 					},
 				},
-				-- nvim-ts-rainbow
-				rainbow = {
-					enable = true,
-					extended_mode = true,
-					-- Do not enable for files with more than 1000 lines, int
-					max_file_lines = nil,
-				},
 				-- nvim-ts-autotag
-				autotag = {
-					enable = true,
-				},
+				autotag = {enable = true,},
 				-- nvim-ts-context-commentstring
 				context_commentstring = {
 					enable = true,

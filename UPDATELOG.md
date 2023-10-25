@@ -16,8 +16,13 @@ BUG: Need fix performance problem when edit rust or c/cpp codes.
 
 ### 16:45
 [CHANGE] ./lua/core/mapping.lua:
-
 - ADD 97-110: Add 2 imap for fast move cursor.
+
+### 18:00
+
+[CHANGE] ./lua/plugins/treesitter/treesitter.lua:
+- CHANGE 9: Use "HiPhish/rainbow-delimiters.nvim" to replace "p00f/nvim-ts-rainbow" to fix performance problem.
+- DEL 37-43: Del useless lines.
 
 ---
 
