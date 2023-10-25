@@ -10,7 +10,14 @@
 - ADD 9, 17-21: Add some switch words.
 
 [CHANGE] ./lua/plugins/view/ui.lua:
-- CHANGE 11: Change config to opts due to checkhealth.
+- CHANGE 11: Change "config" to "opts" due to checkhealth.
+
+BUG: Need fix performance problem when edit rust or c/cpp codes.
+
+### 16:45
+[CHANGE] ./lua/core/mapping.lua:
+
+- ADD 97-110: Add 2 imap for fast move cursor.
 
 ---
 

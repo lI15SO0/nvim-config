@@ -95,6 +95,20 @@ api.map.bulk_regist({
 		description = 'Insert mode right',
 	},
 	{
+		mode = { 'i' },
+		key = '<A-H>',
+		fn = '<esc>I',
+		options = { silent = true },
+		description = 'Insert mode right',
+	},
+	{
+		mode = { 'i' },
+		key = '<A-L>',
+		fn = '<esc>A',
+		options = { silent = true },
+		description = 'Insert mode right',
+	},
+	{
 		mode = { 'v' },
 		key = 'J',
 		fn = ":m '>+1<CR>gv=gv",
