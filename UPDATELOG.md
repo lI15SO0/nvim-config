@@ -1,5 +1,17 @@
 # UPDATE LOG
 
+## 2023-11-12
+
+---
+
+### 02:06
+
+[CHANGE] ./lua/plugins/editor/switch.lua:
+- ADD 22-26: add some new pairs.
+
+---
+
+
 ## 2023-10-25
 
 ---
