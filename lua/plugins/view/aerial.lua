@@ -12,7 +12,7 @@ return {
 			layout = {
 				min_width = 30,
 			},
-			backends = { "lsp", "treesitter", "markdown" },
+			backends = { "treesitter", "markdown" },
 			filter_kind = false,
 			nerd_font = "auto",
 			update_events = "TextChanged,InsertLeave",

@@ -1,10 +1,4 @@
 return {
-	--[[
-	{
-		"folke/which-key.nvim",
-		config = true
-	},
-]]
 	{
 		"kevinhwang91/nvim-hlslens",
 		event = "VeryLazy",
@@ -23,7 +17,6 @@ return {
 		config = function()
 			require("illuminate").configure({
 				providers = {
-					'lsp',
 					'treesitter',
 					'regex',
 				},

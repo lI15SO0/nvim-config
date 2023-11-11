@@ -2,7 +2,6 @@
 
 return {
 	"nvim-pack/nvim-spectre",
-	-- event = "VeryLazy",
 	keys = {
 		{"<leader>rp", function() require("spectre").open () end, mode = {"n"}},
 		{"<leader>rf", function() require("spectre").spectre.open_file_search() end, mode = {"n"}},

@@ -19,6 +19,11 @@ local switch_words = {
 	{"max", "min"},
 	{"big", "small"},
 	{"long", "short"},
+	{"front", "back"},
+	{"public", "private"},
+	{"begin", "end"},
+	{"less", "greater"},
+	{"fast", "slow"},
 }
 
 local push_words = {}

@@ -6,6 +6,8 @@
 
 This is my personal nvim configure files.
 
+***!!! This Branch not include any lsp and dap functions, for less storage usage. !!!***
+
 ---
 
 ## usage

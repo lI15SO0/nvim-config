@@ -1,5 +1,4 @@
 -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
-
 local snip = require("plugins.completion.snip")
 
 local has_words_before = function()
@@ -14,7 +13,6 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"FelipeLema/cmp-async-path",
-		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-cmdline",
 		-- "f3fora/cmp-spell",
@@ -33,21 +31,12 @@ return {
 			},
 			sources = cmp.config.sources {
 				{ name = snip.getSnipSource() },
-				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = 'async_path' },
-				-- {
-				-- 	name = 'spell',
-				-- 	option = {
-				-- 		keep_all_entries = false,
-				-- 		enable_in_context = function() return true end,
-				-- 	},
-				-- },
 			},
 			mapping = cmp.mapping.preset.insert {
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
-				-- ['<C-Space>'] = cmp.mapping.complete(),
 				['<C-e>'] = cmp.mapping.abort(),
 				['<C-p>'] = cmp.mapping.abort(),
 				["<Tab>"] = cmp.mapping(function(fallback)
