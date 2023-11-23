@@ -7,7 +7,7 @@ function pluginLoader.construct(prefix, plugtbl)
 		if status then
 			table.insert(plugins_table, response)
 		else
-			vim.notify("[Warn]: " .. prefix .. "." .. v .. " load failed!\nCause: " .. response, vim.log.levels.WARN,
+			vim.notify("[Warn]: " .. prefix .. "." .. v .. " load failed!\nCause:\n" .. response, vim.log.levels.WARN,
 				{ title = "Plugin Loader" })
 		end
 	end

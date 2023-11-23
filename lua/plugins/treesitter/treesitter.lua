@@ -7,7 +7,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"HiPhish/rainbow-delimiters.nvim",
-			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		event = { "BufRead", "BufAdd" },
@@ -15,6 +14,7 @@ return {
 		main = "nvim-treesitter.configs",
 		build = ":TSUpdate",
 		config = function()
+			require("nvim-treesitter.install").prefer_git = true
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "markdown", "markdown_inline", 'lua' },
 				ignore_install = {},
@@ -23,7 +23,6 @@ return {
 					enable = true,
 					disable = { "yaml", "python", "html", "vue" },
 				},
-				-- incremental selection
 				incremental_selection = {
 					enable = true,
 					keymaps = {
@@ -33,19 +32,11 @@ return {
 						scope_incremental = "<tab>",
 					},
 				},
-				-- nvim-ts-autotag
 				autotag = {enable = true,},
-				-- nvim-ts-context-commentstring
-				context_commentstring = {
-					enable = true,
-					-- enable_autocmd = false,
-				},
 				textobjects = {
 					select = {
 						enable = true,
-
 						lookahead = true,
-
 						keymaps = {
 							["af"] = "@function.outer",
 							["if"] = "@function.inner",
