@@ -32,7 +32,7 @@ settings.o = {
 	-- ####################### UI PART #########################
 	-- 是否高亮当前文本行
 	cursorline = true,
-	cursorcolumn = true,
+	cursorcolumn = false,
 	-- 行号
 	number = true,
 	relativenumber = true,
