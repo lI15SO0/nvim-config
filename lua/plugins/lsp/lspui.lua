@@ -13,13 +13,8 @@ return {
 		end
 	},
 	{
-		"27justin/virtuality.nvim",
-		 event = "LspAttach",
-	},
-	{
 		"jinzhongjia/LspUI.nvim",
 		event = { "LspAttach" },
-		branch = 'legacy',
 		config = function()
 			local LspUI = require("LspUI")
 			LspUI.setup({
