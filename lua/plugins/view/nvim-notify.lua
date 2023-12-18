@@ -1,13 +1,26 @@
--- https://githuloadb.com/rcarriga/nvim-notify
+-- https://github.com/rcarriga/nvim-notify
+
+--[[
+	You can configure this plugins by read notify.setup() document.
+]]
 
 return {
 	"rcarriga/nvim-notify",
 	config = function()
 		local notify = require("notify")
 		local notify_options = {
-			stages = 'fade_in_slide_out',
+			stages = 'fade',
 			timeout = 100,
-			fps = 60,
+			fps = 8,
+			top_down = true,
+			render = "default",
+			icons = {
+				DEBUG = "",
+				ERROR = "",
+				INFO = "",
+				TRACE = "",
+				WARN = ""
+			},
 		}
 		notify.setup(notify_options)
 		vim.notify = notify
