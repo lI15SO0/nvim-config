@@ -19,20 +19,6 @@ api.map.bulk_regist({
 	},
 	{
 		mode = { 'n' },
-		key = 'd',
-		fn = 'dd',
-		options = { silent = true },
-		description = 'make delete line only one click',
-	},
-	{
-		mode = { 'n' },
-		key = 'y',
-		fn = 'yy',
-		options = { silent = true },
-		description = 'make paste only one click',
-	},
-	{
-		mode = { 'n' },
 		key = 'U',
 		fn = '<cmd>redo<CR>',
 		options = { silent = true },
