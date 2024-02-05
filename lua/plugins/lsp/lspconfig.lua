@@ -46,8 +46,8 @@ return {
 					{ 'n',			'<leader>D',  vim.lsp.buf.type_definition,			{ desc = "Show type definition", silent = true } },
 					{ 'n',			'<leader>cn', "<cmd>LspUI rename<CR>",				{ desc = "Rename", silent = true } },
 					{ 'n',			'<leader>fc', function() vim.lsp.buf.format { async = true } end, { desc = "Formating code", silent = true } },
-					-- { 'n',			'<leader>da', tel_builtin.diagnostics,				{ desc = "Show diagnostics", silent = true } },
-					{ 'n',			'<leader>da', "<cmd>LspUI diagnostic<cr>",				{ desc = "Show diagnostics", silent = true } },
+					{ 'n',			'<leader>da', tel_builtin.diagnostics,				{ desc = "Show diagnostics", silent = true } },
+					-- { 'n',			'<leader>da', "<cmd>LspUI diagnostic<cr>",				{ desc = "Show diagnostics", silent = true } },
 					{ { 'n', 'v' },	'<leader>ca', "<cmd>LspUI code_action<CR>",		{ desc = "Show code action", silent = true } },
 				}
 			end
