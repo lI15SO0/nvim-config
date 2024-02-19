@@ -16,7 +16,8 @@ return {
 		config = function()
 			require("nvim-treesitter.install").prefer_git = true
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "markdown", "markdown_inline", 'lua' },
+				auto_install = true,
+				-- ensure_installed = { "markdown", "markdown_inline", 'lua' },
 				ignore_install = {},
 				highlight = {enable = true,},
 				indent = {
