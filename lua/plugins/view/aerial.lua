@@ -1,7 +1,6 @@
 -- https://github.com/stevearc/aerial.nvim
 return {
 	"stevearc/aerial.nvim",
-	event = "VeryLazy",
 	keys = {
 		{ '<leader>a', '<cmd>AerialToggle!<cr>', mode = 'n', desc = "Toggle Aerial" },
 		{ '{',         '<cmd>AerialPrev<cr>',    mode = 'n', desc = "Move cursor to Perv navigation" },
