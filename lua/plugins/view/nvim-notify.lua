@@ -21,6 +21,7 @@ return {
 				TRACE = "",
 				WARN = ""
 			},
+			background_colour = "#403080"
 		}
 		notify.setup(notify_options)
 		vim.notify = notify

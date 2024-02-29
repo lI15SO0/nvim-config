@@ -16,7 +16,7 @@ options.ui.header = {
 	"               ::Easy way to edit::               ",
 }
 
-options.transparent = false
+options.transparent = true
 options.float_border = false
 options.blend = 30
 options.show_winbar = true

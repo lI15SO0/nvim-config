@@ -15,7 +15,7 @@ return {
 	config = function ()
 		require("nightfox.config").set_fox("duskfox")
 		require("nightfox").setup({
-			transparent = options.transparent,
+				options = { transparent = options.transparent, }
 		})
 		require("nightfox").load()
 		require("lualine").setup()

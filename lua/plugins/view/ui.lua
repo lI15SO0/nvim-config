@@ -1,15 +1,11 @@
 return {
 	{
 		"kevinhwang91/nvim-hlslens",
-		event = "VeryLazy",
+		keys = { "/", mode = 'n' },
 		opts = {
 			calm_down = true,
 			nearest_only = true,
 		}
-	},
-	{
-		"psliwka/vim-smoothie",
-		event = "VeryLazy",
 	},
 	{
 		"RRethy/vim-illuminate",
