@@ -93,14 +93,17 @@ return {
 			},
 			sorting = {
 				comparators = {
-					require "cmp-under-comparator".under,
-					cmp.config.compare.kind,
+					cmp.config.compare.locality,
+					cmp.config.compare.scopes,
 					cmp.config.compare.offset,
 					cmp.config.compare.exact,
 					cmp.config.compare.score,
-					cmp.config.compare.sort_text,
+					cmp.config.compare.kind,
 					cmp.config.compare.length,
+					require "cmp-under-comparator".under,
+					cmp.config.compare.sort_text,
 					cmp.config.compare.order,
+					cmp.config.compare.recently_used,
 				},
 			},
 			formatting = {
