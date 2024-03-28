@@ -71,4 +71,7 @@ options.color.OK = options.color.Hint
 options.color.Note = options.color.schema[5]
 options.color.Hack = options.color.schema[6]
 
+options.snip = {}
+options.snip.paths = {}
+
 return options
