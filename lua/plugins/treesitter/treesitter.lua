@@ -1,7 +1,3 @@
----@diagnostic disable: missing-fields
--- https://github.com/nvim-treesitter/nvim-treesitter
-local options = require("core.options")
-
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -19,7 +15,7 @@ return {
 				auto_install = true,
 				-- ensure_installed = { "markdown", "markdown_inline", 'lua' },
 				ignore_install = {},
-				highlight = {enable = true,},
+				highlight = { enable = true, },
 				indent = {
 					enable = true,
 					disable = { "yaml", "python", "html", "vue" },
@@ -33,7 +29,7 @@ return {
 						scope_incremental = "<tab>",
 					},
 				},
-				autotag = {enable = true,},
+				autotag = { enable = true, },
 				textobjects = {
 					select = {
 						enable = true,
