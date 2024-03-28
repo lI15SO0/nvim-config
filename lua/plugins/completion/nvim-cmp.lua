@@ -36,13 +36,6 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = 'async_path' },
-				-- {
-				-- 	name = 'spell',
-				-- 	option = {
-				-- 		keep_all_entries = false,
-				-- 		enable_in_context = function() return true end,
-				-- 	},
-				-- },
 			},
 			mapping = cmp.mapping.preset.insert {
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -107,9 +100,9 @@ return {
 				},
 			},
 			formatting = {
-				format = function (entry, vim_item)
-						vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-						return vim_item
+				format = function(entry, vim_item)
+					vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+					return vim_item
 				end
 			},
 		}
@@ -136,6 +129,5 @@ return {
 		})
 
 		snip.reg_snip_edit_cmd()
-
 	end
 }
