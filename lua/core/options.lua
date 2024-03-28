@@ -54,5 +54,4 @@ options.color.Hack = options.color.schema[6]
 options.snip = {}
 options.snip.paths = {}
 
-
 return options

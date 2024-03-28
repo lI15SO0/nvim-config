@@ -93,9 +93,9 @@ return {
 				},
 			},
 			formatting = {
-				format = function (entry, vim_item)
-						vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-						return vim_item
+				format = function(entry, vim_item)
+					vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+					return vim_item
 				end
 			},
 		}
@@ -122,6 +122,5 @@ return {
 		})
 
 		snip.reg_snip_edit_cmd()
-
 	end
 }

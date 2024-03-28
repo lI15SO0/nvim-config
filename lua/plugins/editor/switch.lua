@@ -24,7 +24,7 @@ local switch_words = {
 	{"begin", "end"},
 	{"less", "greater"},
 	{"fast", "slow"},
-	{"lt", "gt"},
+	{"lt", "gt"}
 }
 
 local push_words = {}

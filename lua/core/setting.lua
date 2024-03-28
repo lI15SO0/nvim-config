@@ -58,7 +58,7 @@ settings.o = {
 	-- 指定 tab 的长度
 	tabstop = 4,
 	softtabstop = 4,
-	shiftwidth=4,
+	shiftwidth = 4,
 	smarttab = true,
 	shiftround = true,
 	wrap = false,
@@ -74,7 +74,7 @@ settings.bo = {
 
 for prefix, tbl in pairs(settings) do
 	for key, value in pairs(tbl) do
-		vim[prefix][ key ] = value
+		vim[prefix][key] = value
 	end
 end
 
