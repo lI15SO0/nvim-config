@@ -52,17 +52,7 @@ options.color.Note = options.color.schema[5]
 options.color.Hack = options.color.schema[6]
 
 options.snip = {}
---	avaliable snip engine:
---		1. vsnip
---		2. snippy
---		3. luasnip
-options.snip.engine = "luasnip"
-options.snip.snippath = { api.path.join(vim.fn.stdpath("config"), "snippets") }
+options.snip.paths = {}
 
---> avaliable value:
--->		1. lua
--->		2. snipmate
--->		3. vscode
-options.snip.luasnip_method = "vscode"
 
 return options
