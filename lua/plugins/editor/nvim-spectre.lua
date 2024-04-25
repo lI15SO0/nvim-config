@@ -5,8 +5,8 @@ return {
 	-- event = "VeryLazy",
 	keys = {
 		{"<leader>rp", function() require("spectre").open () end, mode = {"n"}},
-		{"<leader>rf", function() require("spectre").spectre.open_file_search() end, mode = {"n"}},
-		{"<leader>rw", function() require("spectre").spectre.open_visual({select_word = true}) end, mode = {"n"}},
+		{"<leader>rf", function() require("spectre").open_file_search() end, mode = {"n"}},
+		{"<leader>rw", function() require("spectre").open_visual({select_word = true}) end, mode = {"n"}},
 	},
 	config = function()
 		require("spectre").setup(
