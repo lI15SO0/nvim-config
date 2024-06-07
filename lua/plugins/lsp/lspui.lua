@@ -1,15 +1,10 @@
 return {
 	{
 		"j-hui/fidget.nvim",
-		tag = "legacy",
 		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			require("fidget").setup {
-				window = {
-					blend = 0,
-				},
-			}
+			require("fidget").setup()
 		end
 	},
 	{
