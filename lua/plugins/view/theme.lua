@@ -1,23 +1,22 @@
-local options = require("core.options")
+local theme = require("plugins.view.colorscheme.sakura")
+if theme.dependenices == nil then
+	theme.dependenices = {}
+end
 
 return {
 	{
-		-- "navarasu/onedark.nvim",
-		"EdenEast/nightfox.nvim",
+		theme.colorscheme,
 		dependencies = {
 			"nvim-lualine/lualine.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"utilyre/barbecue.nvim",
 			"SmiteshP/nvim-navic",
+			theme.dependenices
 		},
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("nightfox.config").set_fox("duskfox")
-			require("nightfox").setup({
-				options = { transparent = options.transparent, }
-			})
-			require("nightfox").load()
+			theme.config()
 			require("lualine").setup()
 			require("barbecue").setup()
 		end
