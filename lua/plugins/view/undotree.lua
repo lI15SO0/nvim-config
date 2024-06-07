@@ -1,6 +1,5 @@
 -- https://github.com/mbbill/undotree
 local api = require("api")
-local options = require("core.options")
 
 return {
 	"mbbill/undotree",

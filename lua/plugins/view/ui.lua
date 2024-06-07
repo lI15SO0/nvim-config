@@ -9,7 +9,7 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		event = { "BufRead", "BufAdd" },
+		event = { "BufReadPost", "BufAdd" },
 		config = function()
 			require("illuminate").configure({
 				providers = {

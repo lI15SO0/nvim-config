@@ -1,7 +1,15 @@
 return {
 	{
 		"chenasraf/text-transform.nvim",
-		event = { "BufRead", "BufAdd" },
+		keys = {
+			{
+				"<Leader>w",
+				":TextTransform<CR>",
+				mode = { 'n', 'v' },
+				desc = "Transform text via different transformer.",
+				{ silent = true }
+			} },
+
 		config = function()
 			require("text-transform").setup({
 				-- Prints useful logs about what event are triggered, and reasons actions are executed.
