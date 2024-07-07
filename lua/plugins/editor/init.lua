@@ -10,6 +10,7 @@ local plugins = {
 	"nvim-spectre",
 	"mini",
 	"text-transform",
+	"tabset_nvim",
 }
 
 return api.plugin.construct(path, plugins)
