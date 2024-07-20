@@ -15,8 +15,8 @@ return {
 		},
 		lazy = false,
 		priority = 1000,
-		config = function()
-			theme.config()
+		config = function(plugin)
+			theme.config(plugin)
 			require("lualine").setup()
 			require("barbecue").setup()
 		end
