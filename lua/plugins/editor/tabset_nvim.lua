@@ -9,7 +9,7 @@ return {
 				},
 				languages = {
 					{
-						filetypes = { "haskell" },
+						filetypes = { "haskell", "fsharp" },
 						config = {
 							tabwidth = 4,
 							expandtab = true
