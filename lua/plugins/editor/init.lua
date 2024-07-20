@@ -9,6 +9,7 @@ local plugins = {
 	"window-picker",
 	"nvim-spectre",
 	"mini",
+	"tabset_nvim",
 }
 
 return api.plugin.construct(path, plugins)
