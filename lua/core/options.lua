@@ -61,6 +61,7 @@ options.color.schema = {
 	"#B97BF8",
 	"#2563EB",
 	"#0000AA",
+	"#FFFF88"
 }
 options.color.Error = options.color.schema[3]
 options.color.Warning = options.color.schema[2]
@@ -70,6 +71,7 @@ options.color.Hint = options.color.schema[1]
 options.color.OK = options.color.Hint
 options.color.Note = options.color.schema[5]
 options.color.Hack = options.color.schema[6]
+options.color.Label = options.color.schema[7]
 
 options.snip = {}
 options.snip.paths = {}
