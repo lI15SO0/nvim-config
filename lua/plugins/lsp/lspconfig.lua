@@ -59,7 +59,7 @@ return {
 			require("mason").setup{
 				PATH = "append",
 				ui = {
-					border = options.float_border,
+					border = options.ui.float_border,
 				}
 			}
 

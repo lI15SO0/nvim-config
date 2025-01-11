@@ -8,7 +8,7 @@ M.config = function()
 	local dracula = require "dracula"
 
 	dracula.setup {
-		transparent = options.transparent,
+		transparent = options.ui.transparent,
 		on_colors = function(colors, color)
 			---@type dracula.palette
 			return {

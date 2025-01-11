@@ -30,7 +30,7 @@ return {
 
 				win_opts = {
 					cursorline = true,
-					winblend = 10,
+					winblend = options.ui.blend,
 				},
 				-- Jump to symbol in source window when the cursor moves
 				autojump = false,

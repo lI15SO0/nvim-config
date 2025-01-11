@@ -1,4 +1,5 @@
 -- https://github.com/mbbill/undotree
+local options = require("core.options")
 local api = require("api")
 
 return {
@@ -12,6 +13,8 @@ return {
 			options = { silent = true },
 			description = "Toggle undotree",
 		})
+
+		vim.g.undotree_dir = options.path.undotree_dir
 
 		vim.cmd(
 			[[

@@ -7,7 +7,7 @@ M.config = function()
 	require("onedark").setup {
 		-- Main options --
 		style = 'deep',              -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-		transparent = options.transparent, -- Show/hide background
+		transparent = options.ui.transparent, -- Show/hide background
 		term_colors = true,          -- Change terminal color as per the selected theme style
 		ending_tildes = true,        -- Show the end-of-buffer tildes. By default they are hidden
 		cmp_itemkind_reverse = true, -- reverse item kind highlights in cmp menu

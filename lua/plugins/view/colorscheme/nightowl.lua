@@ -10,7 +10,7 @@ M.config = function()
 		italics = true,
 		underline = true,
 		undercurl = true,
-		transparent_background = options.transparent
+		transparent_background = options.ui.transparent
 	}
 	vim.cmd("colorscheme night-owl")
 end
