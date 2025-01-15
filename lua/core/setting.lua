@@ -68,6 +68,14 @@ settings.o = {
 	signcolumn = "yes",
 }
 
+settings.go = {
+	tabstop = 4,
+	softtabstop = 4,
+	shiftwidth = 4,
+	smarttab = true,
+	expandtab = false,
+}
+
 settings.bo = {
 	shiftwidth = 4,
 }
