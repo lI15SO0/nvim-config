@@ -1,6 +1,6 @@
+local api = require("api")
+
 return {
-
-
 	{
 		"folke/neodev.nvim",
 		lazy = true,
@@ -12,18 +12,20 @@ return {
 		lazy = true,
 		ft = "lua",
 		config = function()
-			local api = require("api")
-			api.command.add_autocmd(
-				{ "BufRead" },
-				function()
+
+			local autocmd = {
+				events = "BufRead",
+				func = function()
 					if vim.bo.filetype == "lua" then
 						local luapad = require('luapad.evaluator'):new { buf = vim.api.nvim_get_current_buf() }
 						luapad:start()
 						luapad:eval()
 						-- vim.notify("Started luapad.", vim.log.levels.INFO)
 					end
-				end
-			)
+				end,
+			}
+
+			api.command.reg_autocmd(autocmd)
 		end,
 	}
 }

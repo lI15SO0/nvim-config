@@ -17,8 +17,8 @@ function map.register(key)
 	end
 end
 
-function map.unregister(mode, key, opts)
-	vim.keymap.del(mode, key, opts)
+function map.unregister(key)
+	vim.keymap.del(key.mode, key.key, key.opttions)
 end
 
 function map.bulk_regist(maps)
@@ -29,7 +29,7 @@ end
 
 function map.bulk_unregist(maps)
 	for _,key in pairs(maps) do
-		map.unregister(key.mode, key.key, key.opttions)
+		map.unregister(key)
 	end
 end
 

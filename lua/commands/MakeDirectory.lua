@@ -1,10 +1,9 @@
-
 --[[
 Command: MakeDirectory
 Description: Build previous dir for the file that editing.
 ]]
 
-return function()
+local function f()
 	local path = vim.fn.expand("%")
 	local dir = vim.fn.fnamemodify(path, ":p:h")
 
@@ -14,3 +13,9 @@ return function()
 		vim.notify("Directory already exists", "WARN", { title = "Nvim" })
 	end
 end
+
+return {
+	cmd = "MakeDirectory",
+	func = f,
+	desc = "Create directory if it doesn't exist"
+}
