@@ -17,20 +17,6 @@ api.map.bulk_regist({
 		options = { silent = true },
 		description = 'CAD style cmd key end',
 	},
-	-- {
-	-- 	mode = { 'n' },
-	-- 	key = 'd',
-	-- 	fn = 'dd',
-	-- 	options = { silent = true },
-	-- 	description = 'make delete line only one click',
-	-- },
-	-- {
-	-- 	mode = { 'n' },
-	-- 	key = 'y',
-	-- 	fn = 'yy',
-	-- 	options = { silent = true },
-	-- 	description = 'make paste only one click',
-	-- },
 	{
 		mode = { 'n' },
 		key = 'U',

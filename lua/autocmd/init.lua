@@ -1,4 +1,5 @@
 local api = require("api")
+local options = require("core.options")
 
 local cmds = api.loader.safe_requires {
 	autosave = "autocmd.autosave",
@@ -6,20 +7,8 @@ local cmds = api.loader.safe_requires {
 	disable_new_annotation_line = "autocmd.DisableNewLineAnnotation"
 }
 
-api.command.add_autocmds({
-	{
-		events = { "InsertLeave", "TextChanged" },
-		func = cmds.autosave,
-		opts = { nested = true, desc = "Auto save file when Text changed or Leave Insert mode." }
-	},
-	{
-		events = "BufReadPost",
-		func = cmds.lastplace,
-		opts = { desc = "Back to lasat place." }
-	},
-	{
-		events = "BufEnter",
-		func = cmds.disable_new_annotation_line,
-		opts = { desc = "Disable new line auto generate annotation head." }
-	}
-})
+for i, x in pairs(cmds) do
+	if options.autocmd[i] == true then
+		api.command.reg_autocmd(x)
+	end
+end

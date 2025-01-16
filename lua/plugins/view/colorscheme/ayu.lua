@@ -5,7 +5,7 @@ M.colorscheme = "Shatur/neovim-ayu"
 
 M.config = function()
 	local opt = {}
-	if options.transparent then
+	if options.ui.transparent then
 		opt = {
 			mirage = false,
 			terminal = true,

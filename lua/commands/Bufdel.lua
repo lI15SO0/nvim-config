@@ -1,10 +1,9 @@
-
 --[[
 Command: BufferDelete
 Description: Delete Buffer that do not breaek edit views shape.
 ]]
 
-return function ()
+local function f()
 	local file_exists = vim.fn.filereadable(vim.fn.expand("%p"))
 	local modified = vim.api.nvim_buf_get_option(0, "modified")
 	if file_exists == 0 and modified then
@@ -19,3 +18,9 @@ return function ()
 	local force = not vim.bo.buflisted or vim.bo.buftype == "nofile"
 	vim.cmd(force and "bd!" or string.format("bp | bd! %s", vim.api.nvim_get_current_buf()))
 end
+
+return {
+	cmd = "BufferDelete",
+	func = f,
+	desc = "Delete the current Buffer while maintaining the window layout"
+}

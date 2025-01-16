@@ -11,10 +11,10 @@ return {
 		require 'FTerm'.setup(
 			{
 				ft = 'FTerm',
-				border = options.border,
+				border = options.ui.border,
 				auto_close = true,
 				hl = 'Normal',
-				blend = options.blend,
+				blend = options.ui.blend,
 				dimensions = {
 					height = 0.8, -- Height of the terminal window
 					width = 0.8, -- Width of the terminal window

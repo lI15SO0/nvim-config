@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {
 	install = {
-		colorscheme = { "duskfox" }
+		colorscheme = { "sakura" }
 	}
 }
 

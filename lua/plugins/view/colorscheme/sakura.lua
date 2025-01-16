@@ -5,7 +5,7 @@ M.colorscheme = "numToStr/Sakura.nvim"
 
 M.config = function()
 	require("Sakura").setup {
-		transparent = options.transparent
+		transparent = options.ui.transparent
 	}
 
 	require("Sakura").load()

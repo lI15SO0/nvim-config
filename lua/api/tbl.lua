@@ -16,6 +16,8 @@ function M.to_string(tbl)
 				result = result .. " = {\n"
 				_get(j, floor + 1)
 				result = result .. indent .. "},\n"
+			elseif type(j) == "string" then
+				result = result .. ' = "' .. tostring(j) .. '",\n'
 			else
 				result = result .. ' = ' .. tostring(j) .. ',\n'
 			end
