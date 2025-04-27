@@ -1,7 +1,7 @@
 local path = {}
 
 function path.join(...)
-	return table.concat(vim.tbl_flatten({ ... }), '/')
+	return table.concat(vim.iter({ ... }):flatten():totable(), '/')
 end
 
 function path.exists(p)
