@@ -52,8 +52,6 @@ return {
 				}
 			end
 
-			local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 			require("neoconf").setup()
 			require("mason").setup {
 				PATH = "append",

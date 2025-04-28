@@ -1,9 +1,5 @@
 local options = require("core.options")
 
-local feedkey = function(key, mode)
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 local snip_repos = {
 	"lI15SO0/lI15SO0_Snippets",
 	"rafamadriz/friendly-snippets",
@@ -12,12 +8,9 @@ local snip_repos = {
 local M = {}
 function M.GetSnipPackages()
 	return {
-		"saadparwaiz1/cmp_luasnip",
-		dependencies = {
-			"L3MON4D3/LuaSnip",
-			dependencies = snip_repos,
-			event = "VeryLazy"
-		},
+		"L3MON4D3/LuaSnip",
+		dependencies = snip_repos,
+		event = "VeryLazy"
 	}
 end
 
@@ -38,21 +31,6 @@ end
 
 function M.getSnipSource()
 	return "luasnip"
-end
-
-function M.jumpable()
-	if M.luasnip.expand_or_locally_jumpable() then
-		return true
-	end
-	return false
-end
-
-function M.Next()
-	M.luasnip.expand_or_jump()
-end
-
-function M.Prev()
-	M.luasnip.jump(-1)
 end
 
 function M.reg_snip_edit_cmd()
