@@ -11,7 +11,6 @@ return
 		require('blink.cmp').setup {
 			keymap = {
 				preset = 'none',
-				['<S-k>'] = { "show", 'fallback' },
 				["<C-space>"] = { 'show', 'fallback' },
 				['<C-k>'] = { 'select_prev', 'fallback' },
 				['<C-j>'] = { 'select_next', 'fallback' },
