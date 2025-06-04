@@ -5,5 +5,6 @@ loader.safe_requires({
 	"core.mapping",
 	"core.setting",
 	"core.plugins",
+	"core.lsp",
 	"autocmd",
 })
