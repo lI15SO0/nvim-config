@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		-- High Light words under cursor
 		if client and client:supports_method 'textDocument/documentHighlight' then
-			local hightlight_augroup = vim.api.nvim_create_augroup('kickstarrrt-lsp-highlight', { clear = false })
+			local hightlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
 			vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
 				buffer = ev.buf,
 				group = hightlight_augroup,
