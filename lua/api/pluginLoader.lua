@@ -1,5 +1,9 @@
 local pluginLoader = {}
 
+---Build plugin flatten for lazy loader.
+---@param prefix string
+---@param plugtbl table
+---@return table
 function pluginLoader.construct(prefix, plugtbl)
 	local plugins_table = {}
 	for _, v in pairs(plugtbl) do

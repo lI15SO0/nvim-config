@@ -1,6 +1,8 @@
 local api = require("api")
 local options = require("core.options")
 
+-- TODO: refact this: to fit augroup arg.
+
 local cmds = api.loader.safe_requires {
 	autosave = "autocmd.autosave",
 	lastplace = "autocmd.lastplace",

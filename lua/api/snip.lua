@@ -35,4 +35,12 @@ function M.load()
 	options.snip.loader.load()
 end
 
+
+---Init loader by custom function
+---@param loader function(table)
+function M.init_loader(loader)
+	local options = require("core.options")
+	options.snip.loader.init_loader(loader)
+end
+
 return M

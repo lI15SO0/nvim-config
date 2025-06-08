@@ -1,5 +1,8 @@
 local M = {}
 
+---Import module but not cause crash.
+---@param module string
+---@return any
 function M.safe_require(module)
 	local corr, result = pcall(require, module)
 	if corr then
@@ -10,6 +13,9 @@ function M.safe_require(module)
 	end
 end
 
+---Import modules but not cause crash
+---@param modules string|table
+---@return any
 function M.safe_requires(modules)
 
 	if type(modules) == "string" then

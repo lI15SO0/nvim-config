@@ -7,6 +7,8 @@ M.loader = {
 	has_init = false,
 }
 
+---Init loader by custom function
+---@param loader function(table)
 function M.loader.init_loader(loader)
 	M.loader.loader = loader
 	M.loader.has_init = true

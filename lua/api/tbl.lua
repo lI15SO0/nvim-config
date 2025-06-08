@@ -1,5 +1,8 @@
 local M = {}
 
+---Turn tbl into string with lua object format.
+---@param tbl any
+---@return string
 function M.to_string(tbl)
 	local result = ""
 	local function _get(_tbl, floor)
@@ -28,6 +31,8 @@ function M.to_string(tbl)
 	return result
 end
 
+---Print tbl with lua object format.
+---@param tbl table
 function M.print(tbl)
 	print(M.to_string(tbl))
 end
