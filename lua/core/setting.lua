@@ -76,8 +76,8 @@ settings.go = {
 	shiftwidth = 4,
 	smarttab = true,
 	expandtab = false,
-	winborder = options.ui.border,
-	winblend = options.ui.blend,
+	-- winborder = options.ui.border,
+	-- winblend = options.ui.blend,
 }
 
 settings.bo = {
