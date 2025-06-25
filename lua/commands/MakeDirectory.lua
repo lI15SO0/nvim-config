@@ -10,7 +10,7 @@ local function f()
 	if vim.fn.isdirectory(dir) == 0 then
 		vim.fn.mkdir(dir, "p")
 	else
-		vim.notify("Directory already exists", "WARN", { title = "Nvim" })
+		vim.notify("Directory already exists", vim.log.levels.WARN, { title = "Nvim" })
 	end
 end
 
