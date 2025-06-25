@@ -52,11 +52,6 @@ settings.o = {
 	hlsearch = true,
 	-- 是否在插入括号时短暂跳转到另一半括号上
 	showmatch = false,
-	-- 代码折叠
-	foldenable = true,
-	foldmethod = "expr",
-	foldexpr = 'nvim_treesitter#foldexpr()',
-	foldlevel = 100,
 	-- 指定 tab 的长度
 	tabstop = 4,
 	softtabstop = 4,
