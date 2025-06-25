@@ -29,7 +29,7 @@ return {
 					numbers = "none",
 					diagnostics = "nvim_lsp",
 					-- indicator_icon = "▎",
-					buffer_close_icon = "",
+					buffer_close_icon = "",
 					modified_icon = "●",
 					close_icon = "",
 					left_trunc_marker = "",
@@ -89,7 +89,7 @@ return {
 					diagnostics_indicator = function(count, level, diagnostics_dict, context)
 						local s = " "
 						for e, n in pairs(diagnostics_dict) do
-							local sym = e == "error" and " " or (e == "warning" and " " or "")
+							local sym = e == "error" and " " or (e == "warning" and " " or " ")
 							s = s .. n .. sym
 						end
 						return s
