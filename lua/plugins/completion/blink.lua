@@ -65,6 +65,4 @@ return
 
 		snip.reg_snip_edit_cmd()
 	end
-
-
 }
