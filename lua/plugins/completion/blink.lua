@@ -50,6 +50,7 @@ return
 			sources = {
 				default = { 'snippets', 'lsp', 'path', 'buffer' },
 				providers = {
+					snippets = { score_offset = 1000 },
 					lsp = {
 						async = true,
 					},
