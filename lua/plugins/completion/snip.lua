@@ -29,15 +29,19 @@ function M.snipInit()
 
 	M.luasnip = require("luasnip")
 
+	-- TODO: make it work on cursor leave node.
 	-- Solvtion from https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436
-	vim.api.nvim_create_autocmd('ModeChanged', {
+	vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
 		pattern = '*',
 		callback = function()
-			if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
-				and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
-				and not require('luasnip').session.jump_active
+			if M.luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
 			then
-				require('luasnip').unlink_current()
+				M.luasnip.active_update_dependents()
+			end
+
+			if not M.luasnip.expand_or_locally_jumpable()
+			then
+				M.luasnip.unlink_current()
 			end
 		end
 	})
@@ -57,6 +61,19 @@ function M.reg_snip_edit_cmd()
 		require("luasnip.loaders").edit_snippet_files,
 		{ desc = "Edit Snip file" }
 	)
+end
+
+function M.jumpable()
+	return M.luasnip.expand_or_locally_jumpable()
+end
+
+function M.luasnip_unlink()
+	M.luasnip.active_update_dependents()
+	M.luasnip.unlink_current()
+end
+
+function M.Next()
+	M.luasnip.expand_or_jump()
 end
 
 return M
