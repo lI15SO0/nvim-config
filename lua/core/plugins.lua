@@ -8,7 +8,6 @@ if not vim.loop.fs_stat(lazypath) then
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
 		"--branch=stable", -- latest stable release
-		"--depth=1",
 		lazypath,
 	})
 end
