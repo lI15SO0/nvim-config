@@ -17,8 +17,22 @@ return
 				['<C-p>'] = { 'cancel', 'fallback' },
 				['<up>'] = { 'select_prev', 'fallback' },
 				['<down>'] = { 'select_next', 'fallback' },
-				['<Tab>'] = { 'accept', 'snippet_forward', 'fallback' },
-				['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+				['<Tab>'] = { 'accept', function(cmp)
+					if snip.luasnip.expand_or_locally_jumpable() then
+						snip.luasnip.activate_node()
+						cmp.snippet_forward()
+						return true
+					end
+					return false
+				end, 'fallback' },
+				['<S-Tab>'] = { function(cmp)
+					if snip.luasnip.expand_or_locally_jumpable() then
+						snip.luasnip.activate_node()
+						cmp.snippet_backward()
+						return true
+					end
+					return false
+				end, 'fallback' },
 			},
 			snippets = { preset = 'luasnip' },
 			appearance = {
