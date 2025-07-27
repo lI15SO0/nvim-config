@@ -12,6 +12,12 @@ local snip_repos = {
 }
 
 local M = {}
+
+M.Status = {
+	this_jumpable = false,
+	last_jumpable = false
+}
+
 function M.GetSnipPackages()
 	return {
 		"L3MON4D3/LuaSnip",
@@ -37,11 +43,13 @@ function M.snipInit()
 			if M.luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
 			then
 				M.luasnip.active_update_dependents()
-			end
 
-			if not M.luasnip.expand_or_locally_jumpable()
-			then
-				M.luasnip.unlink_current()
+				M.Status.last_jumpable = M.Status.this_jumpable
+				M.Status.this_jumpable = M.luasnip.expand_or_locally_jumpable()
+
+				if M.Status.this_jumpable == false and M.Status.last_jumpable == true then
+					M.luasnip.unlink_current()
+				end
 			end
 		end
 	})
