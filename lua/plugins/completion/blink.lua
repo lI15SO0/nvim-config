@@ -19,10 +19,11 @@ return
 				['<down>'] = { 'select_next', 'fallback' },
 				['<Tab>'] = { 'accept', function(cmp)
 					if snip.luasnip.expand_or_locally_jumpable() then
-						snip.luasnip.activate_node()
+						snip.luasnip.activate_node({select = true})
 						cmp.snippet_forward()
 						return true
 					end
+					snip.luasnip.unlink_current()
 					return false
 				end, 'fallback' },
 				['<S-Tab>'] = { function(cmp)

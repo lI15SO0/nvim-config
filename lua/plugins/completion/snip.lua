@@ -32,27 +32,7 @@ function M.snipInit()
 	require("luasnip.loaders.from_vscode").lazy_load()
 
 	options.snip.loader.load()
-
 	M.luasnip = require("luasnip")
-
-	-- TODO: make it work on cursor leave node.
-	-- Solvtion from https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436
-	vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-		pattern = '*',
-		callback = function()
-			if M.luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
-			then
-				M.luasnip.active_update_dependents()
-
-				M.Status.last_jumpable = M.Status.this_jumpable
-				M.Status.this_jumpable = M.luasnip.expand_or_locally_jumpable()
-
-				if M.Status.this_jumpable == false and M.Status.last_jumpable == true then
-					M.luasnip.unlink_current()
-				end
-			end
-		end
-	})
 end
 
 function M.getSnipEngine(args)
