@@ -1,4 +1,5 @@
-local loader = require("api.loader")
+local api = require("api")
+local loader = api.loader
 loader.safe_requires({
 	"core.options",
 	"commands",
