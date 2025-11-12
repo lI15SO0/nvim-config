@@ -22,7 +22,8 @@ function M.GetSnipPackages()
 	return {
 		"L3MON4D3/LuaSnip",
 		dependencies = snip_repos,
-		event = "VeryLazy"
+		event = "VeryLazy",
+		run = "make install_jsregexp"
 	}
 end
 
