@@ -1,11 +1,5 @@
-local bin_name = 'slangd'
-
-if vim.fn.has 'win32' == 1 then
-	bin_name = 'slangd.exe'
-end
-
 return {
-	cmd = { bin_name },
+	cmd = { "slangd" },
 	filetypes = { 'hlsl', 'shaderslang' },
 	root_markers = { '.git' },
 	settings = {

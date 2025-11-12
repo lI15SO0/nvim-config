@@ -4,5 +4,7 @@ vim.lsp.enable {
 	'rust_analyzer',
 	'neocmake',
 	'nushell',
-	'slangd'
+	'slangd',
+	'csharp-ls',
+	'fsautocomplete'
 }
