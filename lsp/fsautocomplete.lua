@@ -9,14 +9,20 @@ return {
 		})
 	end,
 
-	root_dir = vim.fs.root(0, function(name, _)
+	root_dir = function(bufnr, on_dir)
 		for _, extension in pairs(root_file_extension) do
-			if name:match(extension) then
-				return true
+			local root_path = vim.fs.root(bufnr, function(name, _)
+				if name:match(extension) then
+					return true
+				end
+				return false;
+			end)
+
+			if root_path ~= nil then
+				return on_dir(root_path)
 			end
 		end
-		return false;
-	end),
+	end,
 	filetypes = { 'fsharp', 'fs' },
 
 	-- https://github.com/ionide/FsAutoComplete?tab=readme-ov-file#settings
