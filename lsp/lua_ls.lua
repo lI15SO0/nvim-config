@@ -1,3 +1,8 @@
+-- https://github.com/LuaLS/lua-language-server
+-- scoop install lua-language-server # for windows
+-- # package manager for linux
+-- brew install lua-language-server # for macos
+
 ---@type vim.lsp.Config
 return {
   cmd = { 'lua-language-server' },

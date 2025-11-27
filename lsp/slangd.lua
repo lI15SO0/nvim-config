@@ -1,3 +1,5 @@
+-- https://shader-slang.org/
+
 ---@type vim.lsp.Config
 return {
 	cmd = { "slangd" },

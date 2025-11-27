@@ -1,3 +1,5 @@
+-- https://www.nushell.sh/
+
 ---@type vim.lsp.Config
 return {
 	cmd = { 'nu', '--lsp' },

@@ -1,3 +1,5 @@
+-- https://rust-lang.org/
+
 local function is_library(fname)
 	local user_home = vim.fs.normalize(vim.env.HOME)
 	local cargo_home = os.getenv 'CARGO_HOME' or user_home .. '/.cargo'

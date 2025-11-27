@@ -1,3 +1,6 @@
+-- https://github.com/ionide/fsautocomplete
+-- dotnet tool install --global fsautocomplete
+
 local root_file_extension = { '%.sln$', '%.slnx$', '%.fsproj$', '%.git$' }
 
 ---@type vim.lsp.Config

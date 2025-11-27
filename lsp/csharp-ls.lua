@@ -1,3 +1,6 @@
+-- https://github.com/razzmatazz/csharp-language-server
+-- dotnet tool install --global csharp-ls
+
 local api = require("api")
 
 local root_file_extension = { '%.sln$', '%.slnx$', '%.csproj$', '%.git$' }

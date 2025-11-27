@@ -1,3 +1,6 @@
+-- https://github.com/neocmakelsp/neocmakelsp
+-- cargo install neocmakelsp
+
 ---@type vim.lsp.Config
 return {
   cmd = { 'neocmakelsp', '--stdio' },
