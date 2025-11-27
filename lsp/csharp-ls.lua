@@ -2,6 +2,7 @@ local api = require("api")
 
 local root_file_extension = { '%.sln$', '%.slnx$', '%.csproj$', '%.git$' }
 
+---@type vim.lsp.Config
 return {
 	cmd = function(dispatchers, config)
 		return vim.lsp.rpc.start({ 'csharp-ls' }, dispatchers, {

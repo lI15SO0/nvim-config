@@ -1,5 +1,6 @@
 local root_file_extension = { '%.sln$', '%.slnx$', '%.fsproj$', '%.git$' }
 
+---@type vim.lsp.Config
 return {
 	cmd = function(dispatchers, config)
 		return vim.lsp.rpc.start({ 'fsautocomplete', '--adaptive-lsp-server-enabled' }, dispatchers, {

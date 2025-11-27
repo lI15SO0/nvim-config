@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 return {
 	cmd = { "slangd" },
 	filetypes = { 'hlsl', 'shaderslang' },
