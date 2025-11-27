@@ -6,5 +6,7 @@ vim.lsp.enable {
 	'nushell',
 	'slangd',
 	'csharp-ls',
-	'fsautocomplete'
+	'fsautocomplete',
+	'jsonls'
+
 }
