@@ -7,6 +7,7 @@ vim.lsp.enable {
 	'slangd',
 	'csharp-ls',
 	'fsautocomplete',
-	'jsonls'
-
+	'jsonls',
+	'htmlls',
+	'cssls',
 }
