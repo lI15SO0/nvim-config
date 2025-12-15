@@ -10,4 +10,5 @@ vim.lsp.enable {
 	'jsonls',
 	'htmlls',
 	'cssls',
+	'glsl_analyzer',
 }
