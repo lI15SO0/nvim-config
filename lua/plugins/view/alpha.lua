@@ -1,9 +1,9 @@
 return {
 	{
 		"goolord/alpha-nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		-- dependencies = {
+		-- 	"nvim-mini/mini.icons"
+		-- },
 		config = function()
 			-- require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
 
@@ -19,7 +19,7 @@ return {
 				dashboard.button("q", "⏻  Quit NVIM", ":qa<CR>"),
 			}
 
-			-- dashboard.section.footer.val = 
+			-- dashboard.section.footer.val =
 			dashboard.config.opts.noautocmd = true
 
 			alpha.setup(dashboard.config)

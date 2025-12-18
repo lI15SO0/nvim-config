@@ -8,7 +8,8 @@ return {
 		theme.colorscheme,
 		dependencies = {
 			"nvim-lualine/lualine.nvim",
-			"nvim-tree/nvim-web-devicons",
+			-- "nvim-tree/nvim-web-devicons",
+			-- "nvim-mini/mini.icons",
 			"utilyre/barbecue.nvim",
 			"SmiteshP/nvim-navic",
 			theme.dependenices
