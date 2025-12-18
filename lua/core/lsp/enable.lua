@@ -11,4 +11,5 @@ vim.lsp.enable {
 	'htmlls',
 	'cssls',
 	'glsl_analyzer',
+	'zls',
 }
