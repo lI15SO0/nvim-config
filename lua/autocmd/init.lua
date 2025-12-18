@@ -1,16 +1,28 @@
 local api = require("api")
 local options = require("core.options")
 
--- TODO: refact this: to fit augroup arg.
-
 local cmds = api.loader.safe_requires {
 	autosave = "autocmd.autosave",
 	lastplace = "autocmd.lastplace",
 	disable_new_annotation_line = "autocmd.DisableNewLineAnnotation"
 }
 
+local groups = {
+	'default',
+	'autosave',
+	'postread',
+	'bufenter'
+}
+
+-- create augroup and clear it
+for _, x in ipairs(groups) do
+	vim.api.nvim_create_augroup(x, { clear = true })
+end
+
+-- reg autocmds
 for i, x in pairs(cmds) do
-	if options.autocmd[i] == true then
-		api.command.reg_autocmd(x)
+	local autocmd_enalble = options.autocmd[i]
+	if autocmd_enalble then
+		vim.api.nvim_create_autocmd(x.event, x.opts)
 	end
 end

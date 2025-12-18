@@ -7,7 +7,10 @@ local function f()
 end
 
 return {
-	events = "BufReadPost",
-	func = f,
-	opts = { desc = "Back to lasat place." }
+	event = "BufReadPost",
+	opts = {
+		group = "postread",
+		callback = f,
+		desc = "Back to lasat place.",
+	}
 }

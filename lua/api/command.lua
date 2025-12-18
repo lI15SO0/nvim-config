@@ -1,31 +1,5 @@
 local M = {}
 
--- TODO: refact autocmd function: add augroup args
-
----EZ register autocmd.
----@param autocmd table
-function M.reg_autocmd(autocmd)
-	if autocmd.opts == nil then
-		autocmd.opts = {}
-	end
-
-	if type(autocmd.func) == "string" then
-		autocmd.opts.command = autocmd.func
-	else
-		autocmd.opts.callback = autocmd.func
-	end
-
-	vim.api.nvim_create_autocmd(autocmd.events, autocmd.opts)
-end
-
----EZ register autocmds.
----@param autocmds table
-function M.reg_autocmds(autocmds)
-	for _, autocmd in pairs(autocmds) do
-		M.add_autocmd(autocmd)
-	end
-end
-
 ---EZ register command.
 ---@param cmd table
 function M.reg_command(cmd)

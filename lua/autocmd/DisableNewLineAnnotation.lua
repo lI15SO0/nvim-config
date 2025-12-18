@@ -3,7 +3,10 @@ local function f()
 end
 
 return {
-	events = "BufEnter",
-	func = f,
-	opts = { desc = "Disable new line auto generate annotation head." }
+	event = "BufEnter",
+	opts = {
+		group = 'bufenter',
+		callback = f,
+		desc = "Disable new line auto generate annotation head."
+	}
 }
