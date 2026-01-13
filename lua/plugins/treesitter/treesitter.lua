@@ -6,6 +6,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		event = { "BufRead", "BufAdd" },
+		branch = "master",
 
 		main = "nvim-treesitter.configs",
 		build = ":TSUpdate",
