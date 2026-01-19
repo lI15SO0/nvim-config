@@ -10,6 +10,8 @@ This is my personal nvim configure files.
 
 ## usage
 
+**!!Make sure you termemu support OSC 52!!**
+
 Clone it in to nvim configure dir.
 
 ```bash
