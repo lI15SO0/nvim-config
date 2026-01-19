@@ -9,7 +9,6 @@ local plugins = {
 	"aerial",
 	"alpha",
 	"buffline",
-	-- "neotree",
 	"oil",
 	"undotree",
 	"fterm",

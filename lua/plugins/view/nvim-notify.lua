@@ -1,9 +1,5 @@
 -- https://github.com/rcarriga/nvim-notify
 
---[[
-	You can configure this plugins by read notify.setup() document.
-]]
-
 return {
 	"rcarriga/nvim-notify",
 	config = function()

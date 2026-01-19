@@ -2,7 +2,6 @@
 
 return {
 	"akinsho/bufferline.nvim",
-	-- event = "VeryLazy",
 	event = {"BufRead", "BufAdd"},
 	config = function()
 		local api = require("api")
