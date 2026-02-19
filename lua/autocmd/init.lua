@@ -4,14 +4,16 @@ local options = require("core.options")
 local cmds = api.loader.safe_requires {
 	autosave = "autocmd.autosave",
 	lastplace = "autocmd.lastplace",
-	disable_new_annotation_line = "autocmd.DisableNewLineAnnotation"
+	disable_new_annotation_line = "autocmd.DisableNewLineAnnotation",
+	spec_filetype_use_soft_tab = "autocmd.SpecFiletypeUseSoftTab",
 }
 
 local groups = {
 	'default',
 	'autosave',
 	'postread',
-	'bufenter'
+	'bufenter',
+	'bufset'
 }
 
 -- create augroup and clear it
