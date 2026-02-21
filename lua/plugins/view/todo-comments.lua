@@ -20,7 +20,8 @@ return {
 			WARN = { icon = " ", color = options.color.Warning, alt = { "WARNING", "XXX" } },
 			PERF = { icon = "󰓅 ", color = options.color.Hint, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 			NOTE = { icon = " ", color = options.color.Information, alt = { "INFO" } },
-			LABEL = { icon = "󰌕", color = options.color.LABEL, alt = { "LB" } }
+			LABEL = { icon = "󰌕", color = options.color.LABEL, alt = { "LB" } },
+			CAUTION = { icon = " ", color = options.Information }
 		}
 	},
 }
