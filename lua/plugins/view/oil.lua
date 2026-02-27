@@ -1,5 +1,13 @@
 return {
 	'stevearc/oil.nvim',
+
+	dependencies = {
+		{
+			"JezerM/oil-lsp-diagnostics.nvim",
+			opts = {}
+		},
+		"malewicz1337/oil-git.nvim"
+	},
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {},
