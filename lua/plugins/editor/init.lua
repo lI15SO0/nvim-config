@@ -11,6 +11,7 @@ local plugins = {
 	"mini",
 	"text-transform",
 	"tabset_nvim",
+	"insx"
 }
 
 return api.plugin.construct(path, plugins)
