@@ -4,7 +4,7 @@ local path="plugins.editor"
 local plugins = {
 	"editor",
 	"telescope",
-	"flash",
+	-- "flash",
 	"switch",
 	"window-picker",
 	"nvim-spectre",
