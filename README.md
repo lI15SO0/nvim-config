@@ -12,6 +12,8 @@ This is my personal nvim configure files.
 
 **!!Make sure you termemu support OSC 52!!**
 
+Ensure tree-sitter-cli installed first.
+
 Clone it in to nvim configure dir.
 
 ```bash
