@@ -1,4 +1,4 @@
-local expand_extensions = { '*.py', '*.yaml' }
+local expand_extensions = { '*.py', '*.yaml', '*.fs', "*.hs" }
 
 local function f()
 	vim.bo.expandtab = true

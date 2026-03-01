@@ -10,7 +10,6 @@ local plugins = {
 	"nvim-spectre",
 	"mini",
 	"text-transform",
-	"tabset_nvim",
 	"insx"
 }
 
