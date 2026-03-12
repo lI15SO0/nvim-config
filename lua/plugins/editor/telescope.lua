@@ -66,7 +66,7 @@ return {
 					mode = {'n'},
 					key = '<leader>fo',
 					fn = function()
-						builtin.oldfile()
+						builtin.oldfiles()
 					end,
 					options = {silent = true},
 					description = 'use Telescope to find recent open file',
