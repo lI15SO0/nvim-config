@@ -4,7 +4,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		-- Get LSP client
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-		require("core.lsp.keymap")
+		local keymap = require("core.lsp.keymap")
+		keymap.reg_common_keys()
+		keymap.reg_diagnostic_keys()
 
 		-- Folding
 		if client and client:supports_method 'textDocument/foldingRange' then
