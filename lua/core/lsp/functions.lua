@@ -1,4 +1,5 @@
 local M = {}
+
 M.toggle_diagnostic = function()
 	local diag_status = true
 	return function()
@@ -10,6 +11,18 @@ M.toggle_diagnostic = function()
 		diag_status = not diag_status
 	end
 end
+
+M.next_diagnostic = function()
+	local next_diagnostic = vim.diagnostic.get_next()
+	vim.diagnostic.jump { diagnostic = next_diagnostic }
+end
+
+M.prev_diagnostic = function()
+	local prev_diagnostic = vim.diagnostic.get_prev()
+	vim.diagnostic.jump { diagnostic = prev_diagnostic }
+end
+
+
 
 
 return M

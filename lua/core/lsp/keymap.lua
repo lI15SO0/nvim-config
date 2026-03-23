@@ -2,8 +2,8 @@ local funcs = require("core.lsp.functions")
 local tel_builtin = require("telescope.builtin")
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '[d', funcs.prev_diagnostic)
+vim.keymap.set('n', ']d', funcs.next_diagnostic)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 local maps = function(keys)
