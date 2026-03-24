@@ -1,5 +1,25 @@
 local M = {}
 
+-- Lsp client functions.
+
+M.restart_lsp = function()
+	local lsps = vim.lsp.get_clients()
+	for _, j in pairs(lsps) do
+		vim.lsp.stop_client(j.id, true)
+		vim.lsp.start(j.config)
+	end
+end
+
+-- Diagnostic functions
+
+local function diagnostic_jump(diagnostic, emsg)
+	if diagnostic == nil then
+		vim.notify(emsg, vim.log.levels.INFO, { title = "Diagnostic Jumper" })
+	else
+		vim.diagnostic.jump { diagnostic = diagnostic }
+	end
+end
+
 M.toggle_diagnostic = function()
 	local diag_status = true
 	return function()
@@ -12,22 +32,14 @@ M.toggle_diagnostic = function()
 	end
 end
 
-M.restart_lsp = function()
-	local lsps = vim.lsp.get_clients()
-	for _, j in pairs(lsps) do
-		vim.lsp.stop_client(j.id, true)
-		vim.lsp.start(j.config)
-	end
-end
-
 M.next_diagnostic = function()
 	local next_diagnostic = vim.diagnostic.get_next()
-	vim.diagnostic.jump { diagnostic = next_diagnostic }
+	diagnostic_jump(next_diagnostic, "Can not found next diagnostic.")
 end
 
 M.prev_diagnostic = function()
 	local prev_diagnostic = vim.diagnostic.get_prev()
-	vim.diagnostic.jump { diagnostic = prev_diagnostic }
+	diagnostic_jump(prev_diagnostic, "Can not found previous diagnostic.")
 end
 
 return M
