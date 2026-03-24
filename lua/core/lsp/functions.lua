@@ -12,17 +12,22 @@ M.toggle_diagnostic = function()
 	end
 end
 
+local function diagnostic_jump(diagnostic, emsg)
+	if diagnostic == nil then
+		vim.notify(emsg, vim.log.levels.INFO, {title = "Diagnostic Jumper"} )
+	else
+		vim.diagnostic.jump { diagnostic = diagnostic }
+	end
+end
+
 M.next_diagnostic = function()
 	local next_diagnostic = vim.diagnostic.get_next()
-	vim.diagnostic.jump { diagnostic = next_diagnostic }
+	diagnostic_jump(next_diagnostic, "Can not found next diagnostic.")
 end
 
 M.prev_diagnostic = function()
 	local prev_diagnostic = vim.diagnostic.get_prev()
-	vim.diagnostic.jump { diagnostic = prev_diagnostic }
+	diagnostic_jump(prev_diagnostic, "Can not found previous diagnostic.")
 end
-
-
-
 
 return M
