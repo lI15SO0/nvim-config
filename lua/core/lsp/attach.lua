@@ -1,10 +1,15 @@
+local commands = require("core.lsp.commands")
+local keymap = require("core.lsp.keymap")
+
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
 	callback = function(ev)
 		-- Get LSP client
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-		local keymap = require("core.lsp.keymap")
+		-- Basic settings.
+		commands.reg_lsp_commands()
+
 		keymap.reg_common_keys()
 		keymap.reg_diagnostic_keys()
 
@@ -37,10 +42,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		-- Offloads upon datachment
 		vim.api.nvim_create_autocmd('LspDetach', {
-			group = vim.api.nvim_create_augroup('kickstart-lsp-detach', {clear = true}),
-			callback = function (ev2)
+			group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+			callback = function(ev2)
 				vim.lsp.buf.clear_references()
-				vim.api.nvim_clear_autocmds{group = 'kickstart-lsp-highlight', buffer = ev2.buf}
+				vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = ev2.buf }
 			end
 		})
 	end

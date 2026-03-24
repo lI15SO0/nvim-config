@@ -12,6 +12,14 @@ M.toggle_diagnostic = function()
 	end
 end
 
+M.restart_lsp = function()
+	local lsps = vim.lsp.get_clients()
+	for _, j in pairs(lsps) do
+		vim.lsp.stop_client(j.id, true)
+		vim.lsp.start(j.config)
+	end
+end
+
 M.next_diagnostic = function()
 	local next_diagnostic = vim.diagnostic.get_next()
 	vim.diagnostic.jump { diagnostic = next_diagnostic }
@@ -21,8 +29,5 @@ M.prev_diagnostic = function()
 	local prev_diagnostic = vim.diagnostic.get_prev()
 	vim.diagnostic.jump { diagnostic = prev_diagnostic }
 end
-
-
-
 
 return M
