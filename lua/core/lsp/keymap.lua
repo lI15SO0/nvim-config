@@ -2,7 +2,7 @@ local M = {}
 
 local funcs = require("core.lsp.functions")
 local tel_builtin = require("telescope.builtin")
--- local lspui = require("LspUI")
+local lspui = require("LspUI")
 
 local maps = function(keys)
 	for _, k in pairs(keys) do
@@ -11,9 +11,6 @@ local maps = function(keys)
 		end
 		vim.keymap.set(k[1], k[2], k[3], k[4])
 	end
-end
-
-function M.disreg_preset_keys()
 end
 
 function M.reg_common_keys()
@@ -28,9 +25,9 @@ function M.reg_common_keys()
 		{ 'n',          '<leader>wr', vim.lsp.buf.remove_workspace_folder,                                     { desc = "Remove workspace folder", silent = true } },
 		{ 'n',          '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, { desc = "Show workspace list", silent = true } },
 		{ 'n',          '<leader>d',  vim.lsp.buf.type_definition,                                             { desc = "Show type definition", silent = true } },
-		{ 'n',          '<leader>cn', vim.lsp.buf.rename,                                                      { desc = "Rename", silent = true } },
+		{ 'n',          '<leader>cn', lspui.api.rename,                                                        { desc = "Rename", silent = true } },
 		{ 'n',          '<leader>fc', function() vim.lsp.buf.format { async = true } end,                      { desc = "Formating code", silent = true } },
-		{ { 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action,                                                 { desc = "Show code action", silent = true } },
+		{ { 'n', 'v' }, '<leader>ca', lspui.api.code_action,                                                   { desc = "Show code action", silent = true } },
 	}
 end
 
