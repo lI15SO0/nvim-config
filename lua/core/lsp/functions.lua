@@ -42,4 +42,9 @@ M.prev_diagnostic = function()
 	diagnostic_jump(prev_diagnostic, "Can not found previous diagnostic.")
 end
 
+M.toggle_inlay_hint = function()
+	local enable = vim.lsp.inlay_hint.is_enabled()
+	vim.lsp.inlay_hint.enable(not enable)
+end
+
 return M
