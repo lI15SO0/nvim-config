@@ -1,0 +1,107 @@
+local api = require("api")
+local gh = api.plugin.gh
+
+-- 添加所有插件
+vim.pack.add({
+	{ src = gh("nvim-lua/plenary.nvim") },
+	{ src = gh("nvim-telescope/telescope.nvim") },
+	{ src = gh("nvim-telescope/telescope-fzf-native.nvim") },
+})
+
+-- 处理 fzf-native 的构建（模拟 lazy.nvim 的 build 步骤）
+local fzf_plugin_path = nil
+for _, plug in ipairs(vim.pack.get()) do
+	if plug.spec.src:match("telescope%-fzf%-native") then
+		fzf_plugin_path = plug.path
+		break
+	end
+end
+
+if fzf_plugin_path and not vim.fn.isdirectory(fzf_plugin_path .. "/build") then
+	local build_cmd = "cmake -S. -Bbuild -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+	local result = vim.system(build_cmd, { cwd = fzf_plugin_path, text = true }):wait()
+	if result.code ~= 0 then
+		vim.notify("Failed to build telescope-fzf-native: " .. result.stderr, vim.log.levels.ERROR)
+	end
+end
+
+require("telescope").setup({
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		}
+	}
+})
+
+require("telescope").load_extension("fzf")
+
+local builtin = require("telescope.builtin")
+
+api.map.bulk_regist({
+	{
+		mode = { 'n' },
+		key = '<leader>ff',
+		fn = function()
+			builtin.find_files()
+		end,
+		options = { silent = true },
+		description = 'use Telescope to find files',
+	},
+	{
+		mode = { 'n' },
+		key = '<leader>fg',
+		fn = function()
+			builtin.live_grep()
+		end,
+		options = { silent = true },
+		description = 'use Telescope to find in rg',
+	},
+	{
+		mode = { 'n' },
+		key = '<leader>fb',
+		fn = function()
+			builtin.buffers()
+		end,
+		options = { silent = true },
+		description = 'use Telescope to jump buffer',
+	},
+	{
+		mode = { 'n' },
+		key = '<leader>fh',
+		fn = function()
+			builtin.help_tags()
+		end,
+		options = { silent = true },
+		description = 'use Telescope to show help page',
+	},
+	{
+		mode = { 'n' },
+		key = '<leader>fo',
+		fn = function()
+			builtin.oldfiles()
+		end,
+		options = { silent = true },
+		description = 'use Telescope to find recent open file',
+	},
+	{
+		mode = { 'n' },
+		key = '<leader>fm',
+		fn = function()
+			builtin.marks()
+		end,
+		options = { silent = true },
+		description = 'use Telescope to find marks',
+	},
+	{
+		mode = { "n" },
+		key = "<leader>fn",
+		fn = function()
+			require("telescope").extensions.notify.notify()
+		end,
+		options = { silent = true },
+		description = "Show notices history"
+	},
+})
