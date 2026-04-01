@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 
 		-- High Light words under cursor
+		local highlight = false;
 		if client and client:supports_method 'textDocument/documentHighlight' then
 			local hightlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
 			vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -38,14 +39,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 				group = hightlight_augroup,
 				callback = vim.lsp.buf.clear_references
 			})
+			highlight = true
 		end
 
 		-- Offloads upon datachment
 		vim.api.nvim_create_autocmd('LspDetach', {
 			group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
 			callback = function(ev2)
-				vim.lsp.buf.clear_references()
-				vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = ev2.buf }
+				if highlight then
+					vim.lsp.buf.clear_references()
+					vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = ev2.buf }
+					highlight = false
+				end
 			end
 		})
 	end
