@@ -17,7 +17,6 @@ local keymaps = {
 }
 
 local opts = {
-	cmd = 'nu',
 	ft = 'FTerm',
 	border = options.ui.border,
 	auto_close = true,

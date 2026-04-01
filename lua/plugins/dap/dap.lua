@@ -6,7 +6,6 @@ vim.pack.add({
 	{ src = gh("rcarriga/nvim-dap-ui"), },
 	{ src = gh("theHamsta/nvim-dap-virtual-text"), },
 	{ src = gh("nvim-telescope/telescope-dap.nvim"), },
-	{ src = gh("nvim-neotest/nvim-nio"), },
 })
 
 local function setup()

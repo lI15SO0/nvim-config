@@ -1,29 +1,10 @@
 local api = require("api")
 local gh = api.plugin.gh
 
--- 添加所有插件
 vim.pack.add({
-	{ src = gh("nvim-lua/plenary.nvim") },
 	{ src = gh("nvim-telescope/telescope.nvim") },
 	{ src = gh("nvim-telescope/telescope-fzf-native.nvim") },
 })
-
--- 处理 fzf-native 的构建（模拟 lazy.nvim 的 build 步骤）
-local fzf_plugin_path = nil
-for _, plug in ipairs(vim.pack.get()) do
-	if plug.spec.src:match("telescope%-fzf%-native") then
-		fzf_plugin_path = plug.path
-		break
-	end
-end
-
-if fzf_plugin_path and not vim.fn.isdirectory(fzf_plugin_path .. "/build") then
-	local build_cmd = "cmake -S. -Bbuild -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-	local result = vim.system(build_cmd, { cwd = fzf_plugin_path, text = true }):wait()
-	if result.code ~= 0 then
-		vim.notify("Failed to build telescope-fzf-native: " .. result.stderr, vim.log.levels.ERROR)
-	end
-end
 
 require("telescope").setup({
 	extensions = {

@@ -1,4 +1,5 @@
 local plugin_types = {
+	"plugins/lib",
 	"plugins/completion",
 	"plugins/dap",
 	"plugins/editor",
