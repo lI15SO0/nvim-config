@@ -1,6 +1,33 @@
 local api = require("api")
 local gh = api.plugin.gh
 
+vim.api.nvim_create_autocmd('PackChanged', {
+	once = true,
+	callback = function(ev)
+		local name = ev.data.spec.name
+		local kind = ev.data.kind
+		local cwd = ev.data.path
+
+		if name == 'telescope-fzf-native.nvim' and (kind == 'install' or kind == 'update') then
+			local configure = { 'cmake', '-S.', '-Bbuild', '-DCMAKE_BUILD_TYPE=Release' }
+			local build_install = { 'cmake', '--build', 'build', '--config', 'Release', '--target', 'install' }
+
+			vim.system(configure, { cwd = cwd }, function(obj)
+				if obj.code ~= 0 then
+					vim.notify('cmake generate failed', vim.log.levels.ERROR, { title = "telescope-fzf-native" })
+					return
+				end
+
+				vim.system(build_install, { cwd = cwd }, function(obj)
+					if obj.code ~= 0 then
+						vim.notify('compile fzf libs failed', vim.log.levels.ERROR, { title = "telescope-fzf-native" })
+					end
+				end)
+			end)
+		end
+	end,
+})
+
 vim.pack.add({
 	{ src = gh("nvim-telescope/telescope.nvim") },
 	{ src = gh("nvim-telescope/telescope-fzf-native.nvim") },

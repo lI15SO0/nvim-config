@@ -3,6 +3,25 @@ local api = require("api")
 
 local gh = api.plugin.gh
 
+vim.api.nvim_create_autocmd('PackChanged', {
+	once = true,
+	callback = function(ev)
+		local name = ev.data.spec.name
+		local kind = ev.data.kind
+		local cwd = ev.data.path
+
+		if name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
+			local configure = { 'make', 'install_jsregexp', '-j' }
+			vim.system(configure, { cwd = cwd }, function(obj)
+				if obj.code ~= 0 then
+					vim.notify('make jsregexp failed', vim.log.levels.ERROR, { title = "LuaSnip" })
+					return
+				end
+			end)
+		end
+	end,
+})
+
 vim.pack.add({
 	{ src = gh("lI15SO0/lI15SO0_Snippets") },
 	{ src = gh("lI15SO0/friendly-snippets") },
