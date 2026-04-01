@@ -5,17 +5,25 @@ local lsp = {}
 --- @param augroup string
 --- @param lsp_enable function | string
 lsp.enable_with_filetype = function(file_types, augroup, lsp_enable)
-
+	local callback = nil
 	if type(lsp_enable) == 'string' then
-		lsp_enable = function() vim.lsp.enable(lsp_enable) end
+		callback = function()
+			vim.lsp.enable(lsp_enable)
+		end
+	else
+		callback = lsp_enable
 	end
 
-	vim.api.nvim_create_autocmd("FileType", {
-		group = vim.api.nvim_create_augroup(augroup, {clear = true}),
-		once = true,
-		pattern = file_types,
-		callback = lsp_enable,
-	})
+	if (callback == nil) then
+		vim.notify("Error in setup lsp: " .. augroup, vim.log.levels.ERROR, {title = "LspEnalbe"})
+	else
+		vim.api.nvim_create_autocmd("FileType", {
+			group = vim.api.nvim_create_augroup(augroup, { clear = true }),
+			once = true,
+			pattern = file_types,
+			callback = callback,
+		})
+	end
 end
 
 lsp.restart_lsp = function()
