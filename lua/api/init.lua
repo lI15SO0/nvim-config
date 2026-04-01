@@ -14,4 +14,6 @@ api.tbl = require("api.tbl")
 
 api.snip = require("api.snip")
 
+api.lsp = require("api.lsp")
+
 return api

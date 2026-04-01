@@ -1,6 +1,6 @@
 local M = {}
 
-local funcs = require("core.lsp.functions")
+local api = require("api")
 local tel_builtin = require("telescope.builtin")
 local lspui = require("LspUI")
 
@@ -28,18 +28,18 @@ function M.reg_common_keys()
 		{ 'n',          '<leader>cn', lspui.api.rename,                                                        { desc = "Rename", silent = true } },
 		{ 'n',          '<leader>fc', function() vim.lsp.buf.format { async = true } end,                      { desc = "Formating code", silent = true } },
 		{ { 'n', 'v' }, '<leader>ca', lspui.api.code_action,                                                   { desc = "Show code action", silent = true } },
-		{ 'n',          '<leader>ti', funcs.toggle_inlay_hint,                                                 { desc = "Toggle inlay_hint", silent = true } },
+		{ 'n',          '<leader>ti', api.lsp.toggle_inlay_hint,                                                 { desc = "Toggle inlay_hint", silent = true } },
 	}
 end
 
 function M.reg_diagnostic_keys()
 	maps {
-		{ 'n', '[d',         funcs.prev_diagnostic,     { desc = "Jump to prev diagnostic", silent = true } },
-		{ 'n', ']d',         funcs.next_diagnostic,     { desc = "Jump to next diagnostic", silent = true } },
+		{ 'n', '[d',         api.lsp.prev_diagnostic,     { desc = "Jump to prev diagnostic", silent = true } },
+		{ 'n', ']d',         api.lsp.next_diagnostic,     { desc = "Jump to next diagnostic", silent = true } },
 		{ 'n', '<leader>e',  vim.diagnostic.open_float, { desc = "Open float window to show diagnostic", silent = true } },
 		{ 'n', '<leader>q',  vim.diagnostic.setloclist, { desc = "Show diagnostics from this buf.", silent = true } },
 		{ 'n', '<leader>da', tel_builtin.diagnostics,   { desc = "Show diagnostics", silent = true } },
-		{ 'n', '<leader>td', funcs.toggle_diagnostic(), { desc = "Toggle diagnostic", silent = true } },
+		{ 'n', '<leader>td', api.lsp.toggle_diagnostic(), { desc = "Toggle diagnostic", silent = true } },
 	}
 end
 

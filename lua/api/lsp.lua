@@ -1,8 +1,24 @@
-local M = {}
+local lsp = {}
 
--- Lsp client functions.
+--- Enable lsp by filetype via autocmd
+--- @param file_types table<string> | string
+--- @param augroup string
+--- @param lsp_enable function | string
+lsp.enable_with_filetype = function(file_types, augroup, lsp_enable)
 
-M.restart_lsp = function()
+	if type(lsp_enable) == 'string' then
+		lsp_enable = function() vim.lsp.enable(lsp_enable) end
+	end
+
+	vim.api.nvim_create_autocmd("FileType", {
+		group = vim.api.nvim_create_augroup(augroup, {clear = true}),
+		once = true,
+		pattern = file_types,
+		callback = lsp_enable,
+	})
+end
+
+lsp.restart_lsp = function()
 	local lsps = vim.lsp.get_clients()
 	for _, j in pairs(lsps) do
 		vim.lsp.stop_client(j.id, true)
@@ -20,7 +36,7 @@ local function diagnostic_jump(diagnostic, emsg)
 	end
 end
 
-M.toggle_diagnostic = function()
+lsp.toggle_diagnostic = function()
 	local diag_status = true
 	return function()
 		if diag_status == true then
@@ -32,19 +48,19 @@ M.toggle_diagnostic = function()
 	end
 end
 
-M.next_diagnostic = function()
+lsp.next_diagnostic = function()
 	local next_diagnostic = vim.diagnostic.get_next()
 	diagnostic_jump(next_diagnostic, "Can not found next diagnostic.")
 end
 
-M.prev_diagnostic = function()
+lsp.prev_diagnostic = function()
 	local prev_diagnostic = vim.diagnostic.get_prev()
 	diagnostic_jump(prev_diagnostic, "Can not found previous diagnostic.")
 end
 
-M.toggle_inlay_hint = function()
+lsp.toggle_inlay_hint = function()
 	local enable = vim.lsp.inlay_hint.is_enabled()
 	vim.lsp.inlay_hint.enable(not enable)
 end
 
-return M
+return lsp

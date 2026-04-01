@@ -1,9 +1,9 @@
 local M = {}
 
-local funcs = require('core.lsp.functions')
+local api = require('api')
 
 function M.reg_lsp_commands()
-	vim.api.nvim_create_user_command("LspRestart", funcs.restart_lsp, {})
+	vim.api.nvim_create_user_command("LspRestart", api.lsp.restart_lsp, {})
 end
 
 return M
