@@ -16,4 +16,6 @@ api.snip = require("api.snip")
 
 api.lsp = require("api.lsp")
 
+api.fs = require("api.fs")
+
 return api

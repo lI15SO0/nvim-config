@@ -8,7 +8,8 @@ function M.safe_require(module)
 	if corr then
 		return result
 	else
-		vim.notify('Failed to load "' .. module .. '"\nCause: ' .. result, vim.log.levels.WARN, {title= "Require failed!"})
+		vim.notify('Failed to load "' .. module .. '"\nCause: ' .. result, vim.log.levels.WARN,
+			{ title = "Require failed!" })
 		return nil
 	end
 end
@@ -17,7 +18,6 @@ end
 ---@param modules string|table
 ---@return any
 function M.safe_requires(modules)
-
 	if type(modules) == "string" then
 		return M.safe_require(modules)
 	end
@@ -34,7 +34,6 @@ end
 ---@param modules string|table
 ---@return any
 function M.safe_requires_with_prefix(prefix, modules)
-
 	if type(modules) == "string" then
 		return M.safe_require(prefix .. '.' .. modules)
 	end
@@ -45,6 +44,5 @@ function M.safe_requires_with_prefix(prefix, modules)
 	end
 	return result
 end
-
 
 return M
