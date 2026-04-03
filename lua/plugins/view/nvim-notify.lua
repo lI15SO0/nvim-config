@@ -2,12 +2,10 @@
 local api = require("api")
 local gh = api.plugin.gh
 
--- 注册插件
 vim.pack.add({
 	{ src = gh("rcarriga/nvim-notify") },
 })
 
--- 在 VimEnter 时加载并配置 notify（仅一次）
 vim.api.nvim_create_autocmd("VimEnter", {
 	group = vim.api.nvim_create_augroup("LoadNotify", { clear = true }),
 	once = true,

@@ -7,14 +7,30 @@ vim.pack.add({
 	{ src = gh("malewicz1337/oil-git.nvim") },
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-	group = vim.api.nvim_create_augroup("LoadOil", { clear = true }),
-	once = true,
-	callback = function()
-		require("oil-lsp-diagnostics").setup {}
+local oil = require('oil')
 
-		require("oil").setup {}
+local keymaps = {
+	{
+		mod = "n",
+		lhs = "<leader>o",
+		rhs = function()
+			oil.open(nil, { preview = { split = "belowright" } })
+		end,
+		opts = { desc = "Open oil" }
+	},
+	{
+		mod = "n",
+		lhs = "<leader>1",
+		rhs = function()
+			oil.toggle_float(nil, { preview = {} })
+		end,
+		opts = { desc = "Toggle oil float" }
+	},
+}
 
-		vim.keymap.set("n", "<leader>1", "<cmd>Oil<cr>", { silent = true, desc = "Enable Oil" })
-	end,
-})
+local setup = function()
+	require("oil-lsp-diagnostics").setup {}
+	require("oil").setup { float = { preview_split = 'right' } }
+end
+
+api.plugin.keys_setup("oil", keymaps, setup)
