@@ -12,5 +12,6 @@ vim.lsp.enable {
 	'cssls',
 	'glsl_analyzer',
 	'zls',
-	'yamlls'
+	'yamlls',
+	'taplo'
 }
