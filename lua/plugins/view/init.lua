@@ -1,18 +1,18 @@
 local api = require("api")
 
-local path="plugins.view"
+local path = "plugins.view"
 local plugins = {
 	"theme",
 	"ui",
 	"aerial",
 	"alpha",
 	"buffline",
-	"fterm",
 	"gitsigns",
 	"indent-blankline",
 	"nvim-notify",
 	"oil",
 	"todo-comments",
+	"toggleterm",
 	"undotree",
 }
 

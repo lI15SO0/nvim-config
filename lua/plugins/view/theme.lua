@@ -18,7 +18,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		theme.config()
 
-		require("lualine").setup({})
-		require("barbecue").setup()
+		require("lualine").setup {}
+		require("barbecue").setup {
+			exclude_filetypes = { "toggleterm" }
+		}
 	end,
 })
