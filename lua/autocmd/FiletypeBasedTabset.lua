@@ -3,6 +3,7 @@ local function f()
 
 end
 
+--- @type event_obj
 return {
 	events = "FileType",
 	func = f,

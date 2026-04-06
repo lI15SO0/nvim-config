@@ -6,6 +6,7 @@ local function f()
 	vim.bo.shiftwidth = 4
 end
 
+--- @type event_obj
 return {
 	event = { 'BufNewFile', 'BufRead' },
 	opts = {

@@ -1,3 +1,7 @@
+--- @class event_obj
+--- @field event vim.api.keyset.events|vim.api.keyset.events[]
+--- @field opts vim.api.keyset.create_autocmd
+
 local api = require("api")
 
 local cmds = api.loader.safe_requires {

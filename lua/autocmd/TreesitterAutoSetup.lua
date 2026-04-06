@@ -7,7 +7,7 @@ local function is_installed(ft)
 end
 
 local function f()
-	local ft = vim.api.nvim_buf_get_option(0, "filetype")
+	local ft = vim.api.nvim_buf_get_option(0, 'filetype');
 
 	-- Check if avaliable
 	local avaliable_list = ts.get_available();
@@ -51,10 +51,12 @@ local function f()
 	end
 end
 
+--- @type event_obj
 return {
 	event = { "BufWritePost", "BufReadPost" },
 	opts = {
 		group = "treesitter",
+		once = true,
 		callback = f,
 		desc = "Neovim Treesitter auto setup.",
 		nested = true,

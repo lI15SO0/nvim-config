@@ -9,6 +9,7 @@ local function f()
 	end
 end
 
+--- @type event_obj
 return {
 	event = { "InsertLeave", "TextChanged" },
 	opts = {
