@@ -1,4 +1,4 @@
-local expand_extensions = { '*.py', '*.yaml', '*.fs', "*.hs" }
+local expand_extensions = { 'python', 'yaml', 'fsharp', "haskell"}
 
 local function f()
 	vim.bo.expandtab = true
@@ -8,7 +8,7 @@ end
 
 --- @type event_obj
 return {
-	event = { 'BufNewFile', 'BufRead' },
+	event = { "FileType" },
 	opts = {
 		pattern = expand_extensions,
 		group = "bufset",
