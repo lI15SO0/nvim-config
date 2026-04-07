@@ -68,7 +68,7 @@ end
 
 --- @type event_obj
 return {
-	event = { 'BufEnter' },
+	event = { 'FileType' },
 	opts = {
 		group = "treesitter",
 		callback = f,
