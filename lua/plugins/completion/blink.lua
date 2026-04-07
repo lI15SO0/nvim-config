@@ -26,6 +26,7 @@ vim.pack.add({
 	{ src = gh("lI15SO0/lI15SO0_Snippets") },
 	{ src = gh("lI15SO0/friendly-snippets") },
 	{ src = gh("L3MON4D3/LuaSnip"), },
+	{ src = gh("becknik/blink-cmp-luasnip-choice") },
 	{
 		src = gh("saghen/blink.cmp"),
 		version = vim.version.range('1.*')
@@ -93,9 +94,13 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 			},
 			signature = { enabled = true },
 			sources = {
-				default = { 'snippets', 'lsp', 'path', 'buffer' },
+				default = { 'choice', 'lazydev', 'lsp', 'snippets', 'path', 'buffer' },
 				providers = {
-					snippets = { score_offset = 1000 },
+					choice = {
+						name = 'LuaSnip Choice Nodes',
+						module = 'blink-cmp-luasnip-choice',
+						opts = {},
+					},
 					lsp = {
 						async = true,
 					},
