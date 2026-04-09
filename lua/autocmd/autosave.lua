@@ -1,5 +1,6 @@
 local banned_filetypes = {
-	'oil'
+	'oil',
+	'nvim-pack'
 }
 
 local function f()
