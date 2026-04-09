@@ -15,7 +15,7 @@ lsp.enable_with_filetype = function(file_types, augroup, lsp_enable)
 	end
 
 	if (callback == nil) then
-		vim.notify("Error in setup lsp: " .. augroup, vim.log.levels.ERROR, {title = "LspEnalbe"})
+		vim.notify("Error in setup lsp: " .. augroup, vim.log.levels.ERROR, { title = "LspEnalbe" })
 	else
 		vim.api.nvim_create_autocmd("FileType", {
 			group = vim.api.nvim_create_augroup(augroup, { clear = true }),
@@ -30,7 +30,9 @@ lsp.restart_lsp = function()
 	local lsps = vim.lsp.get_clients()
 	for _, j in pairs(lsps) do
 		j:stop()
-		vim.lsp.start(j.config)
+		vim.defer_fn(function()
+			vim.lsp.start(j.config)
+		end, 1000)
 	end
 end
 
