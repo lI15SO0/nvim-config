@@ -29,7 +29,7 @@ end
 lsp.restart_lsp = function()
 	local lsps = vim.lsp.get_clients()
 	for _, j in pairs(lsps) do
-		vim.lsp.stop_client(j.id, true)
+		j:stop()
 		vim.lsp.start(j.config)
 	end
 end
