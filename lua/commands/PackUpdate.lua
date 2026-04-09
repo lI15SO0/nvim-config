@@ -1,5 +1,7 @@
 return {
 	cmd = "PackUpdate",
-	func = vim.pack.update,
+	func = function ()
+		vim.pack.update()
+	end,
 	desc = "Update plugins via pack"
 }
