@@ -3,7 +3,7 @@ local gh = api.plugin.gh
 
 vim.pack.add({
 	{ src = gh("kevinhwang91/nvim-hlslens") },
-	{ src = gh("norcalli/nvim-colorizer.lua") },
+	{ src = gh("catgoose/nvim-colorizer.lua") },
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {
