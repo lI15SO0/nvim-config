@@ -100,7 +100,7 @@ for prefix, tbl in pairs(settings) do
 	end
 end
 
-if vim.fn.has("win32") then
+if vim.fn.has("win32") ~= 0 then
 	vim.o.shell = 'cmd.exe'
 	vim.o.shellcmdflag = '/s /c'
 end
