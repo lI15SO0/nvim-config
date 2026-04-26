@@ -1,4 +1,5 @@
 --- https://github.com/JCWasmx86/mesonlsp
+local api = require('api')
 
 local function _search_meson_root(path)
 	if type(path) ~= 'string' or path == '' then
@@ -36,9 +37,20 @@ local search_meson_root = function(bufnr)
 	return _search_meson_root(vim.fs.dirname(vim.fs.abspath(path)))
 end
 
+local cmd_lst = {
+	{ 'mesonlsp', '--lsp' },
+	{ 'muon',     'analyze', 'lsp' }
+}
+
+local cmd = api.env.cmd_select(cmd_lst);
+if cmd == nil then
+	vim.notify("Failed to select meson lsp.", vim.log.levels.WARN, { title = 'LSP' })
+	return {}
+end
+
 ---@type vim.lsp.Config
 return {
-	cmd = { 'mesonlsp', '--lsp' },
+	cmd = cmd,
 	filetypes = { 'meson' },
 	root_dir = function(bufnr, on_dir)
 		on_dir(search_meson_root(bufnr) or vim.fs.root(bufnr, '.git'))
