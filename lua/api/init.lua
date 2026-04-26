@@ -18,4 +18,6 @@ api.lsp = require("api.lsp")
 
 api.fs = require("api.fs")
 
+api.env = require("api.env")
+
 return api
