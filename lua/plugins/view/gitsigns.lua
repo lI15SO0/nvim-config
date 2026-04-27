@@ -6,7 +6,7 @@ vim.pack.add({
 	{ src = gh("lewis6991/gitsigns.nvim") },
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
 	group = vim.api.nvim_create_augroup("LoadGitsigns", { clear = true }),
 	once = true,
 	callback = function()

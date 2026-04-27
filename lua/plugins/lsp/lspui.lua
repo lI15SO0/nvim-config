@@ -9,7 +9,7 @@ vim.pack.add({
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	group = vim.api.nvim_create_augroup("LoadFidget", { clear = true }),
-	once = true, 
+	once = true,
 	callback = function()
 		require("fidget").setup {}
 	end,
@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("LoadLspUI", { clear = true }),
-	once = true, 
+	once = true,
 	callback = function()
 		require("LspUI").setup {
 			prompt = false,
