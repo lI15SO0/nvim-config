@@ -22,7 +22,7 @@ local keymaps = {
 		mod = "n",
 		lhs = "<leader>1",
 		rhs = function()
-			oil.toggle_float(nil, { preview = {} })
+			oil.toggle_float(nil )
 		end,
 		opts = { desc = "Toggle oil float" }
 	},
