@@ -1,10 +1,12 @@
+local api = require("api")
+local gh = api.plugin.gh
 local options = require("core.options")
 local M = {}
 
 M.colorscheme = "uloco/bluloco.nvim"
 
 M.dependenices = {
-	"rktjmp/lush.nvim"
+	{ src = gh("rktjmp/lush.nvim") }
 }
 
 M.config = function()

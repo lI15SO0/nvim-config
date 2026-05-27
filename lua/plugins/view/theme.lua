@@ -1,8 +1,9 @@
 local api = require("api")
 local gh = api.plugin.gh
-local theme = require("plugins.view.colorscheme.ayu")
-if theme.dependenices == nil then
-	theme.dependenices = {}
+local theme = require("plugins.view.colorscheme.bluloco")
+
+if theme.dependenices ~= nil then
+		vim.pack.add(theme.dependenices )
 end
 
 vim.pack.add({
