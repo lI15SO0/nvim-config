@@ -1,6 +1,6 @@
 local api = require("api")
 local gh = api.plugin.gh
-local theme = require("plugins.view.colorscheme.sakura")
+local theme = require("plugins.view.colorscheme.ayu")
 if theme.dependenices == nil then
 	theme.dependenices = {}
 end
