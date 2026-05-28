@@ -26,7 +26,7 @@ return {
 			end)
 
 			if root_path ~= nil then
-				return on_dir(root_path)
+				on_dir(root_path)
 			end
 		end
 	end,
@@ -34,4 +34,10 @@ return {
 	init_options = {
 		AutomaticWorkspaceInit = true,
 	},
+	get_language_id = function(_, ft)
+		if ft == 'cs' then
+			return 'csharp'
+		end
+		return ft
+	end,
 }
