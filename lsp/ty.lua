@@ -1,3 +1,7 @@
+-- https://docs.astral.sh/ty/
+
+-- uv add --dev ty
+
 return {
   cmd = { 'ty', 'server' },
   filetypes = { 'python' },
