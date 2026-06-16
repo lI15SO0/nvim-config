@@ -1,7 +1,7 @@
 -- https://docs.astral.sh/ty/
-
 -- uv add --dev ty
 
+---@type vim.lsp.Config
 return {
   cmd = { 'ty', 'server' },
   filetypes = { 'python' },
