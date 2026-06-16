@@ -1,5 +1,5 @@
 local api = require('api')
--- fsautocomplete
+-- gdscript
 api.lsp.enable_with_filetype(
   { 'gdscript' },
   "LSP_Enable_gdscript",

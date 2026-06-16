@@ -1,5 +1,5 @@
 local api = require('api')
--- neocmake
+-- mesonlsp
 api.lsp.enable_with_filetype(
   "meson",
   "LSP_Enable_mesonlsp",

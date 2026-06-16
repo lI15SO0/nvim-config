@@ -1,5 +1,5 @@
 local api = require('api')
--- nushell
+-- racket
 api.lsp.enable_with_filetype(
 	{ "racket", "scheme" },
 	"LSP_Enable_racket",
