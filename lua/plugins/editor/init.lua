@@ -1,8 +1,8 @@
 local api = require("api")
 
-local path="plugins.editor"
+local path = "plugins.editor"
 local plugins = {
-	"editor",
+	"surround",
 	"telescope",
 	-- "flash",
 	"switch",
