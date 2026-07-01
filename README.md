@@ -31,3 +31,7 @@ Open nvim once to install plugins.
 > make sure setting fterm cmd config, or set SHELL enviroment variable, to use FTerm correctly.
 
 ---
+
+## Thanks to 
+
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
