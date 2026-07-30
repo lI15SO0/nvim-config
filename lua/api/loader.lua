@@ -45,4 +45,57 @@ function M.safe_requires_with_prefix(prefix, modules)
 	return result
 end
 
+local load_abs_cache = {}
+local load_abs_iso_cache = {}
+
+--- Load lua file with absolute path
+--- @param abspath string
+--- @param reload boolean
+--- @return any
+function M.require_absolute(abspath, reload)
+	if reload ~= true and load_abs_cache[abspath] then
+		return load_abs_cache[abspath]
+	end
+
+	local chunk, err = loadfile(abspath)
+	if not chunk then
+		error(string.format("Failed to load lua file: '%s' : %s", abspath, err))
+	end
+
+	local ok, result = pcall(chunk)
+	if not ok then
+		error(string.format("Failed to executing lua file: '%s' : %s", abspath, result))
+	end
+
+	load_abs_cache[abspath] = result
+	return result
+end
+
+--- Load lua file with absolute path in a isolation env.
+--- Use this api can avoid lua code pollute nvim env.
+--- @param abspath string
+--- @param reload boolean
+--- @return any
+function M.require_absolute_isolation(abspath, reload)
+	if reload ~= true and load_abs_iso_cache[abspath] then
+		return load_abs_iso_cache[abspath]
+	end
+
+	local chunk, err = loadfile(abspath)
+	if not chunk then
+		error(string.format("Failed to load lua file: '%s' : %s", abspath, err))
+	end
+
+	local isolated_env = setmetatable({}, {__index = _G})
+
+	setfenv(chunk, isolated_env)
+
+	local ok, result = pcall(chunk)
+	if not ok then 
+		error(string.format("Failed to executing lua file: '%s' : %s", abspath, result))
+	end
+
+	load_abs_cache[abspath] = result
+end
+
 return M
