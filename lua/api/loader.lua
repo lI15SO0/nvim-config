@@ -50,7 +50,7 @@ local load_abs_iso_cache = {}
 
 --- Load lua file with absolute path
 --- @param abspath string
---- @param reload boolean
+--- @param reload boolean?
 --- @return any
 function M.require_absolute(abspath, reload)
 	if reload ~= true and load_abs_cache[abspath] then
@@ -74,7 +74,7 @@ end
 --- Load lua file with absolute path in a isolation env.
 --- Use this api can avoid lua code pollute nvim env.
 --- @param abspath string
---- @param reload boolean
+--- @param reload boolean?
 --- @return any
 function M.require_absolute_isolation(abspath, reload)
 	if reload ~= true and load_abs_iso_cache[abspath] then
