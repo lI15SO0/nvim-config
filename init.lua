@@ -8,5 +8,6 @@ loader.safe_requires({
 	"core.plugins",
 	"core.folding",
 	"core.lsp",
+	"core.dap",
 	"autocmd",
 })
