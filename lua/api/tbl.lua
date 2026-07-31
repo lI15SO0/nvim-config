@@ -37,4 +37,16 @@ function M.print(tbl)
 	print(M.to_string(tbl))
 end
 
+--- Ensure tbl not nil
+--- when tbl is nil then return {}
+--- otherwise return it self.
+--- @param tbl table?
+--- @return table
+function M.ensurce_table_exist(tbl)
+	if not tbl then
+		return {}
+	end
+	return tbl
+end
+
 return M

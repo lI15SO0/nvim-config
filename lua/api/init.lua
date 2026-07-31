@@ -2,6 +2,7 @@ local api = {}
 
 api.command = require("api.command")
 api.dap= require("api.dap")
+api.daptools = require("api.daptools")
 api.env = require("api.env")
 api.fs = require("api.fs")
 api.loader = require("api.loader")
