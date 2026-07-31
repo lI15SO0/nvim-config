@@ -7,6 +7,7 @@ local M = {}
 --- @field build_cmds string[]?
 --- @field source_maps table?
 --- @field init_commands string[]?
+--- @field args string[]?
 
 --- build python config with less args.
 --- @param config_name string
@@ -73,6 +74,7 @@ function M.make_config(config_name, lldb_config, program, cwd)
 		sourceMap = tbl_tools.ensurce_table_exist(lldb_config.source_maps),
 		initCommands = tbl_tools.ensurce_table_exist(lldb_config.init_commands),
 		program = program,
+		args = tbl_tools.ensurce_table_exist(lldb_config.args),
 	}
 end
 
