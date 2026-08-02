@@ -1,5 +1,5 @@
 --- @type dap.Adapter
 return {
 	type = 'executable',
-	command = 'lldb-dap',
+	command = vim.fn.exepath('lldb-dap'),
 }

@@ -1,5 +1,5 @@
 --- @type dap.Adapter
 return {
 	type = 'executable',
-	command = 'debugpy-adapter',
+	command = vim.fn.exepath('debugpy-adapter'),
 }
