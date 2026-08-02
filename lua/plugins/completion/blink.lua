@@ -94,7 +94,14 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 			},
 			signature = { enabled = true },
 			sources = {
-				default = { 'choice', 'lazydev', 'lsp', 'snippets', 'path', 'buffer' },
+				default = {
+					'lsp',
+					'choice',
+					'lazydev',
+					'snippets',
+					'path',
+					'buffer'
+				},
 				providers = {
 					choice = {
 						name = 'LuaSnip Choice Nodes',
