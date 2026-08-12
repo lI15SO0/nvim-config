@@ -12,7 +12,7 @@ It was configured by a minimul way. To use this configuration, make sure you rea
 
 ## Feature
 
-Use <Space> key enter command mod, double hit <Space> key to commit command.
+Use "<Space>" key enter command mod, double hit "<Space>" key to commit command.
 
 Use <`> as <Leader> key.
 
