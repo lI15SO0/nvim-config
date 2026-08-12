@@ -18,7 +18,11 @@ vim.api.nvim_create_autocmd('VimEnter', {
 					color = options.color.Error,
 					alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "!" }
 				},
-				TODO = { icon = " ", color = options.color.OK },
+				TODO = {
+					icon = " ",
+					color = options.color.OK,
+					alt = { "WIP" }
+				},
 				HACK = { icon = " ", color = options.color.Hack },
 				WARN = { icon = " ", color = options.color.Warning, alt = { "WARNING", "XXX" } },
 				PERF = { icon = "󰓅 ", color = options.color.Hint, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
