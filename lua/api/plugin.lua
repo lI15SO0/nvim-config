@@ -25,7 +25,7 @@ end
 --- @param plugin_name string
 --- @return string
 plugin.cb_ssh = function(plugin_name)
-	return "git@codeberg.org:" .. plugin_name
+	return "ssh://git@codeberg.org/" .. plugin_name
 end
 
 --- @param plugin_name string
