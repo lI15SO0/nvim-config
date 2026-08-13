@@ -1,8 +1,9 @@
 local api = require("api")
 local gh = api.plugin.gh
+local cb = api.plugin.cb
 
 vim.pack.add({
-	{ src = gh("mfussenegger/nvim-dap"), },
+	{ src = cb("mfussenegger/nvim-dap"), },
 	{ src = gh("rcarriga/nvim-dap-ui"), },
 	{ src = gh("theHamsta/nvim-dap-virtual-text"), },
 	{ src = gh("nvim-telescope/telescope-dap.nvim"), },
