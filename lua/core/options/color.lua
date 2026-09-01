@@ -7,7 +7,7 @@ obj.schema = {
 	"#F477F4",
 	"#B97BF8",
 	"#2563EB",
-	"#0000AA",
+	"#2222ff",
 	"#FFFF88"
 }
 obj.Error = obj.schema[3]

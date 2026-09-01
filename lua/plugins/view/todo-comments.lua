@@ -27,9 +27,11 @@ vim.api.nvim_create_autocmd('VimEnter', {
 				WARN = { icon = " ", color = options.color.Warning, alt = { "WARNING", "XXX" } },
 				PERF = { icon = "󰓅 ", color = options.color.Hint, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 				NOTE = { icon = " ", color = options.color.Information, alt = { "INFO" } },
-				LABEL = { icon = "󰌕", color = options.color.LABEL, alt = { "LB" } },
-				CAUTION = { icon = " ", color = options.Information }
-			}
+				LABEL = { icon = "󰌕", color = options.color.Label, alt = { "LB" } },
+				CAUTION = { icon = " ", color = options.color.Label },
+				REFACTOR = { icon = " ", color = options.color.Hack },
+				TEST = { icon = "⏲ ", color = options.color.Label, alt = { "TESTING", "PASSED", "FAILED" } },
+			},
 		})
 
 		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", {
