@@ -1,7 +1,13 @@
 local M = {}
 
+---@class cmd
+---@field cmd string
+---@field func string|fun(args: vim.api.keyset.create_user_command.command_args)
+---@field desc string?
+---@field opts vim.api.keyset.user_command?
+
 ---EZ register command.
----@param cmd table
+---@param cmd cmd
 function M.reg_command(cmd)
 	if cmd.opts == nil then
 		cmd.opts = {}
@@ -15,7 +21,7 @@ function M.reg_command(cmd)
 end
 
 ---EZ register commands.
----@param cmds table
+---@param cmds table<cmd>
 function M.reg_commands(cmds)
 	for _, cmd in pairs(cmds) do
 		M.reg_command(cmd)
