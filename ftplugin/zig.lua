@@ -1,16 +1,14 @@
 local api = require('api')
-local nio = require('nio')
 
 local notify = function(msg, level)
+	if level == nil then
+		level = vim.log.levels.INFO
+	end
 	vim.notify(msg, level, { title = "Zig Test" })
 end
 
-local runned = false
-
-if not runned then
-	runned = true
-
-	api.command.reg_command({
+api.functools.run_once(api.command.reg_command,
+	{
 		cmd = "ZigTest",
 		func = function(args)
 			local filenames = { vim.api.nvim_buf_get_name(0) }
@@ -20,29 +18,31 @@ if not runned then
 			end
 
 			for _, filename in pairs(filenames) do
-				nio.run(function()
-					local process = nio.process.run(
-						{ cmd = "zig", args = { 'test', filename } }
-					)
-
-					if not process then
-						notify("Failed to create test process with filename: " .. filename, vim.log.levels.ERROR)
-						return
+				local stdout = ""
+				local stderr = ""
+				local job_id = vim.fn.jobstart({ 'zig', 'test', filename }, {
+					on_stdout = function(_, data)
+						for _, v in pairs(data) do
+							stdout = stdout .. v .. '\n'
+						end
+					end,
+					on_stderr = function(_, data)
+						for _, v in pairs(data) do
+							stderr = stderr .. v .. '\n'
+						end
+					end,
+					on_exit = function(_, code, _)
+						if code ~= 0 then
+							notify(string.format("Test error: %s code: %d\nstderr: \"%s\"", filename, code, stderr))
+						else
+							notify(string.format("Test passed: %s code: %d", filename, code))
+						end
 					end
-					local code, _ = process.result(true);
+				})
 
-					-- FIX: stderr not read, cause EBADF: bad file descriptor.
-					if code == 1 then
-						local output = process.stderr.read();
-						notify(string.format("Test error: %s code: %d\nstderr: \"%s\"", filename, code, output),
-							vim.log.levels.INFO)
-					else
-						notify(string.format("Test done: %s code: %d", filename, code),
-							vim.log.levels.INFO)
-					end
-
-					process.close()
-				end)
+				if job_id <= 0 then
+					notify("Failed to create test process with filename: " .. filename, vim.log.levels.ERROR)
+				end
 			end
 		end,
 		desc = "Test current zig file or specific zig file",
@@ -50,5 +50,5 @@ if not runned then
 			nargs = '?',
 			complete = 'file'
 		}
-	})
-end
+	}
+)
