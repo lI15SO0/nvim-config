@@ -12,5 +12,6 @@ api.path = require("api.path")
 api.plugin = require("api.plugin")
 api.snip = require("api.snip")
 api.tbl = require("api.tbl")
+api.functools = require("api.functools")
 
 return api
