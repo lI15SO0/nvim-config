@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufAdd" }, {
 						text_align = "center",
 					},
 					{
-						filetype = "undotree",
+						filetype = "nvim-undotree",
 						text = "Undo Explorer",
 						highlight = "Directory",
 						text_align = "center",
