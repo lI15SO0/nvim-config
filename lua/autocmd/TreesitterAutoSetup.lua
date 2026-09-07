@@ -32,6 +32,10 @@ local function install_async(ft, times)
 			local msg = ft .. " treesitter-parser installed and enabled."
 			vim.notify(msg, vim.log.levels.INFO, { title = "Treesitter" })
 			vim.treesitter.start()
+			vim.api.nvim_exec_autocmds('FileType',{
+				group = 'treesitter',
+				buffer = 0,
+			})
 			pending[ft] = nil
 			return true
 		else
@@ -70,7 +74,7 @@ end
 return {
 	event = { 'FileType' },
 	opts = {
-		group = "treesitter",
+		group = "treesitter_bootup",
 		callback = f,
 		desc = "Neovim Treesitter auto setup.",
 		nested = true,

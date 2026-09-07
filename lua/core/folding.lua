@@ -1,9 +1,9 @@
+local api = require('api')
 local M = {}
 
 M.o = {
 	foldenable = true,
-	foldmethod = "expr",
-	foldexpr = 'nvim_treesitter#foldexpr()',
+	foldmethod = "indent",
 	foldlevel = 5,
 	foldlevelstart = 99
 }

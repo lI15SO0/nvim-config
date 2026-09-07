@@ -9,16 +9,18 @@ local cmds = api.loader.safe_requires {
 	lastplace = "autocmd.lastplace",
 	disable_new_annotation_line = "autocmd.DisableNewLineAnnotation",
 	spec_filetype_use_soft_tab = "autocmd.SpecFiletypeUseSoftTab",
-	treesitter_auto_setup = "autocmd.TreesitterAutoSetup"
+	treesitter_auto_setup = "autocmd.TreesitterAutoSetup",
+	treesitter_setup_foldmethod = "autocmd.TreesitterSetupFoldmethod",
 }
 
 local groups = {
-	'default',
 	'autosave',
-	'postread',
 	'bufenter',
 	'bufset',
-	'treesitter'
+	'default',
+	'postread',
+	'treesitter',
+	'treesitter_bootup',
 }
 
 -- create augroup and clear it
