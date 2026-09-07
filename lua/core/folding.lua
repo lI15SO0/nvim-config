@@ -25,15 +25,34 @@ local function prefix_text_colorlized(result, text, row)
 	end
 end
 
+
+local hl_group_created = false
+
 function _G.fold_text()
+	if not hl_group_created then
+		local SkyBlue = '#5be3ed'
+		local DeepBlue = '#14b1be'
+		local White = '#FFFFFF'
+		vim.api.nvim_set_hl(0, 'FoldTag_Surrounds', { fg = SkyBlue })
+		vim.api.nvim_set_hl(0, 'FoldTag_SurroundsInner', { fg = SkyBlue, bg = White })
+		vim.api.nvim_set_hl(0, 'FoldTag_SurroundsInnerBG', { fg = SkyBlue, bg = SkyBlue })
+		vim.api.nvim_set_hl(0, 'FoldTag_Text', { fg = DeepBlue, bg = White, bold = true })
+	end
+
 	local ln = vim.fn.getline(vim.v.foldstart)
 	local lns = vim.v.foldend - vim.v.foldstart
 	local result = {}
+
 	prefix_text_colorlized(result, ln, vim.v.foldstart - 1)
+
 	table.insert(result, { '  ', nil })
-	table.insert(result, { ' ', 'Normal' })
-	table.insert(result, { '  ' .. lns .. ' ', 'Cursor' })
-	table.insert(result, { ' ', 'Normal' })
+	table.insert(result, { ' ', 'FoldTag_Surrounds' })
+	table.insert(result, { ' ', 'FoldTag_SurroundsInnerBG' })
+	table.insert(result, { '', 'FoldTag_SurroundsInner' })
+	table.insert(result, { '  ' .. lns .. ' ', 'FoldTag_Text' })
+	table.insert(result, { '', 'FoldTag_SurroundsInner' })
+	table.insert(result, { ' ', 'FoldTag_SurroundsInnerBG' })
+	table.insert(result, { ' ', 'FoldTag_Surrounds' })
 	table.insert(result, { '  ', nil })
 	return result
 end
