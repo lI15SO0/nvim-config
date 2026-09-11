@@ -30,7 +30,10 @@ end
 
 local postfixs = {
 	{ '.qu',  { "'" } },
-	{ '.dqu', { '"' } }
+	{ '.dqu', { '"' } },
+	{ '.bkp', { '(', ')' } },
+	{ '.bks', { '<', '>' } },
+	{ '.bkc', { '{', '}' } },
 }
 
 local function make_postfix_function(quote)
