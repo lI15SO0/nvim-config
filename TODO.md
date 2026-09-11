@@ -2,4 +2,4 @@
 
 ---
 
-- Add anouther js/ts lsp for not deno proj.
+- Add another js/ts lsp for not deno proj.
