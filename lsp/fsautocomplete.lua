@@ -1,5 +1,7 @@
 -- https://github.com/ionide/fsautocomplete
 -- dotnet tool install --global fsautocomplete
+-- dotnet tool install --global fantomas
+-- dotnet tool install --global dotnet-fsharplint
 
 local root_file_extension = { '%.sln$', '%.slnx$', '%.fsproj$', '%.git$' }
 
