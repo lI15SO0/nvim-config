@@ -19,9 +19,13 @@ local ef = function()
 	end
 end
 
-local enable_lsp_func = api.functools.curry(api.lsp.enable_with_filetype)({
-	'javascript',
-	'javascriptreact',
-	'typescript',
-	'typescriptreact',
-})("LSP_Enable_javascript")(ef)
+api.lsp.enable_with_filetype(
+	{
+		'javascript',
+		'javascriptreact',
+		'typescript',
+		'typescriptreact',
+	},
+	"LSP_Enable_javascript",
+	ef
+)
