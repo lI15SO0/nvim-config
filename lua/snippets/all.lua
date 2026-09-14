@@ -19,10 +19,10 @@ local l = extras.l
 local postfix = require "luasnip.extras.postfix".postfix
 
 local snippets = {}
---- @param snip table
-local sa = function(snip)
-	for _, sn in pairs(snip) do
-		table.insert(snippets, sn)
+--- @param snips table
+local sa = function(snips)
+	for _, snip in pairs(snips) do
+		table.insert(snippets, snip)
 	end
 end
 
