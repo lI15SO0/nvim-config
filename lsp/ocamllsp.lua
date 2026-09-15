@@ -1,5 +1,5 @@
 -- opam install ocaml-lsp-server
--- opam install ocmalformat
+-- opam install ocamlformat
 
 local function switch_impl_intf(bufnr, client)
 	local method_name = 'ocamllsp/switchImplIntf'
