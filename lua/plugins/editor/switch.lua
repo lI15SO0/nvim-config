@@ -24,7 +24,7 @@ local switch_words = {
 	{ "begin",   "end" },
 	{ "less",    "greater" },
 	{ "fast",    "slow" },
-	{ "lt",      "gt" }
+	{ "lt",      "gt" },
 }
 
 local push_words = {}
@@ -35,6 +35,7 @@ local gh = api.plugin.gh
 vim.pack.add({
 	{ src = gh("AndrewRadev/switch.vim") },
 })
+vim.g.switch_mapping = ""
 
 local function setup()
 	for _, value in ipairs(switch_words) do
