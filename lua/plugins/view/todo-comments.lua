@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
 				CAUTION = { icon = " ", color = options.color.Label },
 				REFACTOR = { icon = " ", color = options.color.Hack },
 				TEST = { icon = "⏲ ", color = options.color.Label, alt = { "TESTING", "PASSED", "FAILED" } },
+				DEPRECATED = {icon = "󰩹 ", color  = options.color.schema[8]},
 			},
 		})
 
